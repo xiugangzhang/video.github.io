@@ -1,0 +1,313 @@
+@charset "UTF-8";
+/*css 初始化 */
+/**
+    标签内外边距清零
+ */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img, input, button { /*fieldset组合表单中的相关元素*/
+    border: none;
+    padding: 0;
+    margin: 0;
+    /*去除input标签的外边线, 默认点击input输入框的时候会有一个蓝色的外边框线*/
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none; /*清除列表风格（默认列表前面的小圆点）*/
+}
+
+input {
+    padding-top: 0; /*这里实际上在上面已经清零了**/
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+select, input {
+    vertical-align: middle; /*垂直居中*/
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+textarea {
+    resize: none; /**防止textarea可以拖动大小*/
+}
+
+/*防止多行文本框拖动*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+    border-collapse: collapse; /*合并外边线*/
+}
+
+body {
+    /*通过直接设置font的方式可以快速设置字体的样式*/
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*宋体，Unicode，统一码*/
+    color: #666;
+    background: #fff
+}
+
+/*清除浮动的三句话（面试必考）*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+/*设置a标签的样式*/
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF6600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    /*继承父盒子的大小*/
+    font-size: 100%;
+}
+
+/*小标签用于制作下三角、小的购物车等的图标和标签*/
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+/*设置为最高权限
+span div            1
+.class .box         10
+#box  #box          100
+<div style=''>      1000
+!important          无穷大
+*/
+.col-red {
+    color: #C81623 !important;
+}
+
+/*公共类*/
+.w {
+    /*版心 提取 */
+    width: 1210px;
+    /*样式的居中*/
+    /*一般是安装上右下左的顺序进行解析的*/
+    /*如果是两个的话，先上下、后左右*/
+    margin: 0 auto;
+    /*标记显示版心的位置*/
+    /*border: 1px solid red;*/
+}
+/*@media screen and (min-width:  1370px) {*/
+    /*.w {*/
+        /*width: 1466px;*/
+        /*margin: 0 auto;*/
+    /*}*/
+/*}*/
+
+
+/*左浮动*/
+.fl {
+    float: left
+}
+
+/*右浮动*/
+.fr {
+    float: right
+}
+
+/*文本居左、居中、居右*/
+.al {
+    text-align: left
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+/*块元素的隐藏*/
+.hide {
+    display: none
+}
+
+
+
+/*site-nav start*/
+.site-nav {
+    /*默认不要指定父容器的高度*/
+    width: 100%;
+    /*指定导航栏的高度*/
+    background-color: #FFFFFF;
+    /*这里面的盒子暂时不浮动*/
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+    /*IE6下面的阴影效果：strength是阴影大小，direction是阴影方位，单位为度，可以为负数，color是阴影颜色 */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
+    filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#000000');
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=125, Strength=5);
+
+    position: fixed;
+    z-index: 1;
+}
+.site-nav-logo {
+    width: 205px;
+    height: 40px;
+    /*background-color: #C81623;*/
+    padding: 16px 0 16px 30px;
+    float: left;
+}
+.site-nav-logo .logo {
+    font: 700 25px/150% 'Microsoft YaHei';
+    color: red;
+}
+.site-nav-logo img {
+    padding-right: 3px;
+    width: 30px;
+    width: 30px;
+}
+.site-nav-search {
+    float: left;
+    margin-left: 145px;
+    margin-top: 16px;
+}
+.site-nav-search input {
+    float: left;
+    height: 34px;
+    width: 176px;
+    border: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    font: 400 14px/34px 'Microsoft YaHei';
+}
+.site-nav-search button {
+    margin-left: -1px;
+    float: left;
+    height: 36px;
+    width: 78px;
+    background-color: #fff;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+}
+.site-nav-search button:hover {
+    background-color: #CCCCCC;
+}
+.site-nav-r {
+    float: right;
+}
+.site-nav-r ul li {
+    float: left;
+    margin-top: 16px;
+    font: 700 16px/30px 'Microsoft YaHei';
+    margin-left: 60px;
+}
+.site-nav-user {
+    float: left;
+}
+.site-nav-user a {
+    line-height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.site-nav-user img{
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+/*site-nav end*/
+
+
+/*footer start*/
+.footer {
+    background-color: #333333;
+    width: 100%;
+    margin-top: 95px;
+    margin-bottom: 0px;
+}
+
+.footer-links {
+    background-color: #333333;
+    float: left;
+    /*这里需要给内部的盒子何止填充100%*/
+    width: 100%;
+    height: 200px;
+    padding: 15px 0;
+    margin-bottom: 0px;
+}
+
+.footer-links dl {
+    float: left;
+    width: 240px;
+}
+
+.footer-links dl dt {
+    height: 35px;
+    line-height: 35px;
+    font: 400 16px/35px '微软雅黑';
+}
+
+.footer-links dl dd {
+    height: 22px;
+    line-height: 22px;
+
+}
+.footer-links .last {
+    width: 250px;
+    position: relative;
+}
+.footer-links .last dd {
+    border-radius: 5px;
+    margin-top: 20px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font: 15px/40px 'Microsoft YaHei';
+    background-color: #F8F8F8;
+    margin-left: 15px;
+}
+.footer-links .last dd:hover {
+    cursor: pointer;
+}
+.img-show {
+    padding: 5px;
+    width: 190px;
+    height: 190px;
+    background-color: #8A2Ac6;
+    position: absolute;
+    right: 0;
+    top: -155px;
+    right: 110px;
+    border-radius: 10px;
+    background-color: #F1F1F1;
+    display: none;
+}
+.img-show img {
+    width: 190px;
+    height: 190px;
+}
+/*footer end*/

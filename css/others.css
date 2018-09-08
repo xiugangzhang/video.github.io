@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/*login start*/
+.login,
+.register {
+    padding-top: 110px;
+    padding-bottom: 50px;
+}
+.login-form{
+    width: 360px;
+    height: 322px;
+    margin-left: 415px;
+    margin-bottom: 180px;
+}
+.register-form {
+    width: 360px;
+    margin-left: 415px;
+}
+.form-title {
+    padding-left: 14px;
+    color: #ffffff;
+    width: 346px;
+    height: 38px;
+    font: 400 16px/38px 'Microsoft YaHei';
+    background-color: #DFF0D8;
+    border: 1px solid #DFF0D8;
+
+}
+.register-form .form-title {
+    background-color: #DFF0D8;
+    color: #A1893D;
+    border: 1px solid #D6E9C6;
+}
+.form-content {
+    height: 338px;
+    width: 360px;
+    /*background-color: #8A2Ac6;*/
+    border: 1px solid #D6E9C6;
+}
+.register-form .form-content {
+    height: 530px;
+    border: 1px solid #D6E9C6;
+}
+.form-content label {
+    float: left;
+    margin-left: 15px;
+    margin-top: 15px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group {
+    float: left;
+    text-align: center;
+}
+.form-content input {
+    margin-top: 5px;
+    height: 46px;
+    width: 340px;
+    border: 1px solid #CCCCCC;
+    font: 400 18px/46px 'Microsoft YaHei';
+    padding-left: 5px;
+}
+.captcha {
+    padding-left: 5px;
+    float: left;
+    width: 340px;
+}
+.captcha input {
+    float: left;
+    height: 46px;
+    width: 180px;
+}
+.captcha img {
+    height: 46px;
+    width: 143px;
+    cursor: pointer;
+}
+
+.form-content button {
+    margin-top: 25px;
+    width: 340px;
+    height: 46px;
+    font: 400 18px/46px 'Microsoft YaHei';
+    color: #ffffff;
+    background-color: #5CB85C;
+}
+.form-content button:hover {
+    background-color: #25b81f;
+    cursor: pointer;
+}
+/*.login-form button {
+    background-color: #3186cb;
+}
+.login-form button:hover {
+    background-color: #32AFFF;
+}
+.login-form .form-title {
+    background-color: #32AFFF;
+}*/
+/*login end*/
+

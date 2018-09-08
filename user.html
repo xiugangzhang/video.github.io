@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我爱科技论坛-VIP视频免费看</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+<!--site-nav start, 这里使用清除浮动的方式让这个盒子具有高度-->
+<div class="site-nav clearfix">
+    <div class="w">
+        <div class="site-nav-logo">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="">微电影</a>
+        </div>
+        <div class="site-nav-search">
+            <form action="" method="get">
+                <input type="text" placeholder="请输入电影名称">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+        <div class="site-nav-r">
+            <ul>
+                <li><a href="index.html">电影</a></li>
+                <li><a href="login.html">登录</a></li>
+                <li><a href="register.html">注册</a></li>
+                <li><a href="index.html">退出</a></li>
+                <li><a href="user.html">会员</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--site-nav end-->
+
+<!--useinfo start-->
+<div class="userinfo clearfix">
+    <div class="w">
+        <div class="userinfo-l">
+            <ul id="userinfo">
+                <li class="current">会员中心</li>
+                <li>修改密码</li>
+                <li>评论记录</li>
+                <li>登录日志</li>
+                <li>收藏电影</li>
+            </ul>
+        </div>
+        <div class="userinfo-r">
+            <div class="user-center">
+                <span class="title">会员中心</span>
+                <div class="user-center-content">
+                    <form action="" method="post">
+                        <label for="username">昵称</label>
+                        <input type="text" placeholder="昵称" name="username" id="username" autofocus>
+                        <label for="email">邮箱</label>
+                        <input type="text" placeholder="邮箱" name="email" id="email">
+                        <label for="tel">手机</label>
+                        <input type="text" placeholder="手机" name="email" id="tel">
+                        <label for="logo">图像</label>
+                        <img src="images/logo.svg" alt="" id="logo">
+                        <a class="upload">上传图像</a>
+                        <label for="desc">简介</label>
+                        <textarea name="" id="desc" cols="30" rows="10">十年窗下无人问，一举成名天下知</textarea>
+                        <button type="submit">保存修改</button>
+                    </form>
+                </div>
+            </div>
+            <div class="user-pwd">
+                <span class="title">修改密码</span>
+                <form action="" method="post">
+                    <label for="pwd1">旧密码</label>
+                    <input type="password" placeholder="旧密码" name="pwd" id="pwd1">
+                    <label for="pwd2">新密码</label>
+                    <input type="password" placeholder="新密码" name="pwd" id="pwd2">
+                    <button type="submit">修改密码</button>
+                </form>
+            </div>
+            <div class="user-comment">
+                <span class="title">评论记录</span>
+                <div class="comment-content">
+                    <div class="userlogo">
+                        <img src="images/userlogo.svg" alt="">
+                    </div>
+                    <div class="usercontent">
+                        <div class="usercontent-title">
+                            <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                        </div>
+                        <div class="usercontent-con">
+                            这个电影真好看呀！
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <div class="userlogo">
+                        <img src="images/userlogo.svg" alt="">
+                    </div>
+                    <div class="usercontent">
+                        <div class="usercontent-title">
+                            <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                        </div>
+                        <div class="usercontent-con">
+                            这个电影真好看呀！
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <div class="userlogo">
+                        <img src="images/userlogo.svg" alt="">
+                    </div>
+                    <div class="usercontent">
+                        <div class="usercontent-title">
+                            <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                        </div>
+                        <div class="usercontent-con">
+                            这个电影真好看呀！
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <div class="userlogo">
+                        <img src="images/userlogo.svg" alt="">
+                    </div>
+                    <div class="usercontent">
+                        <div class="usercontent-title">
+                            <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                        </div>
+                        <div class="usercontent-con">
+                            这个电影真好看呀！
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <div class="userlogo">
+                        <img src="images/userlogo.svg" alt="">
+                    </div>
+                    <div class="usercontent">
+                        <div class="usercontent-title">
+                            <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                        </div>
+                        <div class="usercontent-con">
+                            这个电影真好看呀！
+                        </div>
+                    </div>
+                </div>
+                <!--评论分页-->
+                <div class="comments-page">
+                    <ul>
+                        <li><a class="page-btn" href="#">首页</a></li>
+                        <li><a class="page-btn" href="#">上一页</a></li>
+                        <li><a class="page-btn" href="#">1&nbsp;/&nbsp;10</a></li>
+                        <li><a class="page-btn" href="#">下一页</a></li>
+                        <li><a class="page-btn" href="#">尾页</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="user-logininglog">
+                <span class="title">登录日志</span>
+                <table class="table-con">
+                    <tbody>
+                    <tr>
+                        <td>编号</td>
+                        <td>登录时间</td>
+                        <td>登录IP</td>
+                        <td>登录地址</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2017-01-01 12:00:00</td>
+                        <td>192.168.4.1</td>
+                        <td>云南昆明</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2017-01-01 12:00:00</td>
+                        <td>192.168.4.1</td>
+                        <td>云南昆明</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2017-01-01 12:00:00</td>
+                        <td>192.168.4.1</td>
+                        <td>云南昆明</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2017-01-01 12:00:00</td>
+                        <td>192.168.4.1</td>
+                        <td>云南昆明</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2017-01-01 12:00:00</td>
+                        <td>192.168.4.1</td>
+                        <td>云南昆明</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="user-moviecol">
+                <span class="title">收藏电影</span>
+                <div class="moviecol-con">
+                    <div class="moviecol-con-l">
+                    </div>
+                    <div class="moviecol-con-r">
+                        <div class="moviecol-con-title">
+                            <span class="movie-title">
+                                环太平洋
+                            </span>
+                            <a class="movie-play" href="play.html">
+                                ▶播放影片
+                            </a>
+                        </div>
+                        <span class="moviecol-con-desc">
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                        </span>
+                    </div>
+                </div>
+                <div class="moviecol-con">
+                    <div class="moviecol-con-l">
+                    </div>
+                    <div class="moviecol-con-r">
+                        <div class="moviecol-con-title">
+                            <span class="movie-title">
+                                环太平洋
+                            </span>
+                            <a class="movie-play" href="play.html">
+                                ▶播放影片
+                            </a>
+                        </div>
+                        <span class="moviecol-con-desc">
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                        </span>
+                    </div>
+                </div>
+                <div class="moviecol-con">
+                    <div class="moviecol-con-l">
+                    </div>
+                    <div class="moviecol-con-r">
+                        <div class="moviecol-con-title">
+                            <span class="movie-title">
+                                环太平洋
+                            </span>
+                            <a class="movie-play" href="play.html">
+                                ▶播放影片
+                            </a>
+                        </div>
+                        <span class="moviecol-con-desc">
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                        </span>
+                    </div>
+                </div>
+                <div class="moviecol-con">
+                    <div class="moviecol-con-l">
+                    </div>
+                    <div class="moviecol-con-r">
+                        <div class="moviecol-con-title">
+                            <span class="movie-title">
+                                环太平洋
+                            </span>
+                            <a class="movie-play" href="play.html">
+                                ▶播放影片
+                            </a>
+                        </div>
+                        <span class="moviecol-con-desc">
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                                该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。
+                        </span>
+                    </div>
+                </div>
+                <!--收藏电影分页-->
+                <div class="movies-col-page">
+                    <ul>
+                        <li><a class="page-btn" href="#">首页</a></li>
+                        <li><a class="page-btn" href="#">上一页</a></li>
+                        <li><a class="page-btn" href="#">1&nbsp;/&nbsp;10</a></li>
+                        <li><a class="page-btn" href="#">下一页</a></li>
+                        <li><a class="page-btn" href="#">尾页</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--useinfo end-->
+
+<!--footer start-->
+<div class="footer clearfix">
+    <div class="w">
+        <div class="footer-links">
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">关于我们</a></dt>
+                <dd><a href="#">联系我们</a></dd>
+                <dd><a href="#">网站地图</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">投稿须知</a></dd>
+            </dl>
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">联系我们</a></dt>
+                <dd><a href="#">邮箱</a></dd>
+                <dd><a href="#">微博</a></dd>
+                <dd><a href="#">QQ群</a></dd>
+                <dd><a href="#">微信</a></dd>
+            </dl>
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">网站服务</a></dt>
+                <dd><a href="#">创业报道</a></dd>
+                <dd><a href="#">广告支持</a></dd>
+                <dd><a href="#">网站推广</a></dd>
+                <dd><a href="#">商务合作</a></dd>
+            </dl>
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">帮助中心</a></dt>
+                <dd><a href="#">登陆注册</a></dd>
+                <dd><a href="#">找回密码</a></dd>
+                <dd><a href="#">自助服务</a></dd>
+                <dd><a href="#">资源下载</a></dd>
+            </dl>
+            <dl class="last" id="lastlogo">
+                <dt><a href="#">关注我们</a></dt>
+                <dd><a href="#">微信</a></dd>
+                <dd><a href="#">QQ群</a></dd>
+                <dd><a href="#">新浪</a></dd>
+                <dd><a href="#">邮箱</a></dd>
+                <div class="img-show" id="imgshow">
+                    <img src="images/weixin.jpg" alt="">
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+<!--footer end-->
+
+
+<script src="js/xframe-min-1.0.js" type="text/javascript"></script>
+<script src="js/base.js" type="text/javascript"></script>
+<script>
+    // 用户中心的切换效果实现开始-----------------------------------------------------------------
+    // 开启用户中心切换按钮
+    window.onload = function () {
+        toggleUserButton();
+    }
+
+
+    /**
+     * 用户中心切换按钮
+     */
+    function toggleUserButton() {
+        $('#userinfo li').on('click', function () {
+            var text = $(this).text();
+            $('#userinfo li').each(function () {
+                $(this).css('backgroundColor', '');
+                $(this).css('color', 'black');
+            });
+            $(this).css('color', 'white');
+            $(this).css('backgroundColor', '#337AB7');
+            switch (text) {
+                case '会员中心':
+                    $('.user-center').show();
+                    $('.user-pwd').hide();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').hide();
+                    break;
+                case '修改密码':
+                    $('.user-center').hide();
+                    $('.user-pwd').show();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').hide();
+                    break;
+                case '评论记录':
+                    $('.user-center').hide();
+                    $('.user-pwd').hide();
+                    $('.user-comment').show();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').hide();
+                    break;
+                case '登录日志':
+                    $('.user-center').hide();
+                    $('.user-pwd').hide();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').show();
+                    $('.user-moviecol').hide();
+                    break;
+                case '收藏电影':
+                    $('.user-center').hide();
+                    $('.user-pwd').hide();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').show();
+                    break;
+            }
+        });
+    }
+
+    // 用户中心的切换效果实现结束-----------------------------------------------------------------
+
+
+</script>
+</body>
+</html>

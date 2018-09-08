@@ -1,0 +1,400 @@
+@charset "UTF-8";
+/*main start*/
+.main {
+    /*把里面的盒子挤下去*/
+    padding-top: 90px;
+}
+.main-slider {
+    cursor: pointer;
+    height: 420px;
+    /*background-color: rgba(0.5, 0.5, 0, 0.2);*/
+    /*background: url("../images/big1.jpg") no-repeat;*/
+    /*图片铺满背景*/
+    background-size: 100%;
+
+    /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/www/images/big1.jpg', sizingMethod="scale");*/
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+
+    /*给盒子添加四周阴影的效果*/
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    /*background: #EEFF99;*/
+
+    /*IE下面的阴影效果：strength是阴影大小，direction是阴影方位，单位为度，可以为负数，color是阴影颜色 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=125, Strength=5);
+
+    /*渐变倒影效果*/
+    -webkit-box-reflect: below -122px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white));
+}
+
+.main-slider ul {
+    position: absolute;
+    right: 70px;
+    /*top: 19px;*/
+}
+.main-item {
+    position: absolute;
+    right: 70px;
+}
+.main-item a {
+    display: block;
+    width: 250px;
+    height: 42px;
+    background-color: rgba(211, 201, 191, 0.8);
+    text-align: center;
+    color: #000;
+    /*background-color: #ffff00;*/
+    font: 400 14px/37px 'Microsoft YaHei';
+}
+.main-slider .first {
+    width: 250px;
+    height: 25px;
+    /*background-color: #C81623;*/
+    /*background: #000;*/
+    background: -webkit-linear-gradient(rgba(211, 201, 191, 0.5), rgba(211, 201, 191, 0.8));
+    background: -moz-linear-gradient(top, rgba(211, 201, 191, 0.5) 100%, rgba(211, 201, 191, 0.8) 0%); /*FireFox*/
+    background: -o-linear-gradient(top, rgba(211, 201, 191, 0.5) 100%, rgba(211, 201, 191, 0.8) 0%); /* Opear */
+    background: -ms-linear-gradient(rgba(211, 201, 191, 0.5), rgba(211, 201, 191, 0.8)); /*IE10及IE10+*/
+}
+
+.main-slider .last {
+    width: 250px;
+    height: 25px;
+    /*background-color: #C81623;*/
+    /*background: #000;*/
+    background: -webkit-linear-gradient(rgba(211, 201, 191, 0.8), rgba(211, 201, 191, 0.5));
+    background: -moz-linear-gradient(top, rgba(211, 201, 191, 0.8) 0%, rgba(211, 201, 191, 0.5) 100%);; /*FireFox*/
+    background: -o-linear-gradient(top, rgba(211, 201, 191, 0.8) 0%, rgba(211, 201, 191, 0.5) 100%); /* Opear */
+    background: -ms-linear-gradient(rgba(211, 201, 191, 0.8), rgba(211, 201, 191, 0.5)); /*IE10及IE10+*/
+}
+
+.main-slider ul li {
+    /*float: left;*/
+    width: 250px;
+    height: 42px;
+    background-color: rgba(211, 201, 191, 0.8);
+    text-align: center;
+    color: #000;
+    /*background-color: #ffff00;*/
+    font: 400 14px/37px 'Microsoft YaHei';
+}
+
+/*这里使用的是一个伪类选择器，不包含first和last的li标签*/
+.main-slider ul li:not(.first, .last) {
+    background-color: #F7F7F8;
+    cursor: pointer;
+}
+
+.main-slider ul:hover {
+    cursor: pointer;
+}
+
+.arrow {
+    position: relative;
+    height: 200px;
+    background-color: #1da1f2;
+}
+
+.arrow-l,
+.arrow-r {
+    /*设置箭头的位置信息*/
+    position: absolute;
+    top: 50%;
+    /*left: 0;*/
+    display: block;
+    /*为了能够居中显示，还需要向上移动高度的一半*/
+    margin-top: -31px;
+    width: 28px;
+    height: 62px;
+    /*设置里面的> <的样式*/
+    font: 400 22px/62px '宋体';
+    /*实现背景半透明的几种方式*/
+    background: rgba(0, 0, 0, 0.3);
+    /*background-color: #8A2Ac6;*/
+    text-align: center;
+    color: #ffffff;
+}
+
+.arrow a:hover {
+    color: #ffffff;
+    /*0.6和.6的实际效果是相同的*/
+    background: rgba(0, 0, 0, .6);
+}
+
+.arrow-r {
+    /*直接写了不顶事的， 需要把.arrow-l踢出去单独写，两个才可以同时起作用*/
+    right: 320px;
+}
+
+.arrow-l {
+    left: 0;
+}
+
+.main-slider .current {
+    background-color: #F7F8F8;
+    height: 76px;
+    position: relative;
+}
+
+.main-slider .current-title {
+    height: 30px;
+    font: 700 24px/30px '黑体';
+    color: #FF6428;
+    float: left;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.main-slider .current-content {
+    float: left;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+}
+
+/*main end*/
+
+/*movies start*/
+.movies {
+    margin-top: 15px;
+}
+
+.movies-type {
+    /*这句话不能少*/
+    float: left;
+    width: 100%;
+    margin-top: 22px;
+}
+
+.movies-type h1 {
+    /*background-color: #8A2Ac6;*/
+    font: 700 24px/55px 'Microsoft YaHei';
+    margin-bottom: 10px;
+    border-left: 5px solid #ff8b20;
+    padding-left: 15px;
+}
+
+.movies-type ul li {
+    float: left;
+    width: 107px;
+    height: 40px;
+    background-color: #ff8b20;
+    margin-right: 5px;
+    font: 400 18px/40px 'Microsoft YaHei';
+    text-align: center;
+    color: #ffffff;
+}
+
+.movies-type ul li:hover {
+    cursor: pointer;
+    background-color: #ffbd23;
+}
+
+
+.movies-content,
+.tvs-content,
+.tvshows-content,
+.animes-content {
+    margin-top: 16px;
+    padding-left: 10px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.movies-content ul,
+.tvs-content ul,
+.tvshows-content ul,
+.animes-content ul {
+    display: table;
+    text-align: center;
+}
+
+.tvs-content {
+    display: none;
+}
+
+.tvshows-content {
+    display: none;
+}
+
+.animes-content {
+    display: none;
+}
+
+.movies-content ul li,
+.tvs-content ul li,
+.tvshows-content ul li,
+.animes-content ul li {
+    float: left;
+    width: 195px;
+    height: 374px;
+    /*这里的行高太高了，把下面的元素都挤走了？？？*/
+    /*font: 400 18px/262px 'Microsoft YaHei';*/
+    text-align: center;
+    color: #ffffff;
+    background-color: #F8F8F8;
+    margin-right: 10px;
+    margin-top: 12px;
+    padding: 0 14px;
+}
+
+/*这里是一个屏幕分辨率的自适应*/
+/*@media screen and (min-width:  1370px) {*/
+    /*.movies-content ul li,*/
+    /*.tvs-content ul li,*/
+    /*.tvshows-content ul li,*/
+    /*.animes-content ul li {*/
+        /*width: 253px;*/
+    /*}*/
+/*}*/
+
+.movies-img {
+    float: left;
+    display: block;
+    width: 195px;
+    height: 262px;
+    font: 400 18px/262px 'Microsoft YaHei';
+    background-color: #9dc60a;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+.movies-img img {
+    /*如果图片大小不做定义，则页面需要重新渲染，速度受到影响*/
+    width: 195px;
+    height: 262px;
+    float: left;
+    border-radius: 10px;
+}
+
+.movies-info {
+    margin-top: 1px;
+    height: 56px;
+    width: 195px;
+    background-color: #FEFEFE;
+    float: left;
+    color: #000;
+}
+
+.movies-info .movies-contentname {
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    width: 195px;
+    background-color: #fff;
+    font: 16px 'Microsoft YaHei';
+}
+
+.movies-info .movie-desc {
+    float: left;
+    display: block;
+    height: 28px;
+    width: 195px;
+    line-height: 28px;
+    font-size: 13px;
+    /*background-color: #1da1f2;*/
+    color: #999999;
+}
+.movie-top {
+    position: relative;
+}
+.movie-vip {
+    float: left;
+    position: absolute;
+    width: 32px;
+    height: 20px;
+    background-color: #FC3F4C;
+    top: 4px;
+    right: 4px;
+    color: #fff;
+    font: 400 15px/20px 'Microsoft YaHei';
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+.movie-num {
+    width: 100px;
+    height: 20px;
+    left: 0;
+    bottom: -250px;
+    position: absolute;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+.movie-score {
+    right: 10px;
+    bottom: -248px;
+    width: 38px;
+    height: 30px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FF5F33;
+    font: 14px/30px 'Microsoft YaHei';
+    text-align: center;
+    cursor: pointer;
+    /*字体垂直拉伸*/
+    transform: scale(1,1.2);
+    -ms-transform: scale(1,1.2);
+    -webkit-transform: scale(1,1.2);
+    -moz-transform: scale(1,1.2);
+    -o-transform: scale(1,1.2);
+}
+.score-strong {
+    font-Size: 24px;
+}
+.movies-play {
+    display: block;
+    /*background-color: yellow;*/
+    font: 400 18px/40px 'Microsoft YaHei';
+    height: 40px;
+    line-height: 40px;
+    width: 195px;
+    float: left;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid #2fa4e7;
+}
+
+.movies-play:hover {
+    background-color: #2fa4e7;
+}
+
+.movies-page {
+    margin-top: 70px;
+    float: left;
+    position: relative;
+}
+
+.movies-page ul {
+    position: absolute;
+    margin-left: -172px;
+    left: 50%;
+}
+
+.movies-page ul li {
+    margin-left: -1px;
+    float: left;
+    font: 400 14px/34px 'Microsoft YaHei';
+    height: 34px;
+    width: 68px;
+    background-color: #FEFEFE;
+    border: 1px solid #2fa4e7;
+    text-align: center;
+}
+
+.movies-page ul li:hover {
+    background-color: #CCCCCC;
+    cursor: pointer;
+}
+
+/*movies end*/

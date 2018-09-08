@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我爱科技论坛-VIP视频免费看</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/play.css">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+<!--site-nav start, 这里使用清除浮动的方式让这个盒子具有高度-->
+<div class="site-nav clearfix">
+    <div class="w">
+        <div class="site-nav-logo">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="">微电影</a>
+        </div>
+        <div class="site-nav-search">
+            <form action="" method="post">
+                <input type="text" placeholder="请输入电影名称">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+        <div class="site-nav-r">
+            <ul>
+                <li><a href="index.html">电影</a></li>
+                <li><a href="login.html">登录</a></li>
+                <li><a href="register.html">注册</a></li>
+                <li><a href="#">退出</a></li>
+                <li><a href="user.html">会员</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--site-nav end-->
+
+
+<!--play start-->
+<div class="play clearfix">
+    <div class="w">
+        <div class="play-video">
+            <iframe id="video_iframe" src="http://www.82190555.com/video.php?url="></iframe>
+        </div>
+        <div class="play-intro">
+            <div class="play-intro-title">
+                <span class="movie-vip">VIP</span>
+                <span class="movie-name">春光灿烂猪八戒</span>
+            </div>
+            <div class="play-intro-content">
+                <table class="play-intro-table">
+                    <tbody>
+                    <tr>
+                        <td>标签</td>
+                        <td>科幻</td>
+                    </tr>
+                    <tr>
+                        <td>片长</td>
+                        <td>05:04</td>
+                    </tr>
+                    <tr>
+                        <td>地区</td>
+                        <td>美国</td>
+                    </tr>
+                    <tr>
+                        <td>星级</td>
+                        <td class="star">★&nbsp;★&nbsp;★&nbsp;★&nbsp;☆</td>
+                    </tr>
+                    <tr>
+                        <td>播放数量</td>
+                        <td>10000</td>
+                    </tr>
+                    <tr>
+                        <td>影片介绍</td>
+                        <td>该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事。</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="select-index">
+                    <a href="#" class="select-last">上一集</a>
+                    <select id="select-num" class="select">
+                        <option value="01">第01集</option>
+                        <option value="02">第02集</option>
+                        <option value="03">第03集</option>
+                        <option value="04">第04集</option>
+                        <option value="05">第05集</option>
+                        <option value="06">第06集</option>
+                        <option value="07">第07集</option>
+                        <option value="08">第08集</option>
+                        <option value="09">第09集</option>
+                    </select>
+                    <a href="#" class="select-next">下一集</a>
+                </div>
+            </div>
+        </div>
+        <div class="play-other">
+            <div class="play-other-l">
+                <span class="movie-name">春光灿烂猪八戒 </span><span class="movie-index">第1集</span><span class="movie-score">9.0</span>
+            </div>
+            <div class="play-other-r">
+                <span class="play-other-toast">亲，如果视频加载不给力，请点击左上角或者这里切换接口加速啊！</span>
+                <select  class="select-interface">
+                    <option value="01">接口1</option>
+                    <option value="02">接口2</option>
+                    <option value="03">接口3</option>
+                    <option value="04">接口4</option>
+                    <option value="05">接口5</option>
+                    <option value="06">接口6</option>
+                    <option value="07">接口7</option>
+                    <option value="08">接口8</option>
+                    <option value="09">接口9</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--play end-->
+
+<!--comment start-->
+<div class="comment clearfix">
+    <div class="w">
+        <!--评论登录的提示信息-->
+        <div class="comment-login">
+            <div class="comment-top">
+                <span>请先<a href="login.html">登录</a>，才可以参与评论！</span>
+            </div>
+            <div class="comment-bottom">
+                <form action="" method="post">
+                    <span class="comment-bottom-title">内容</span>
+                    <textarea class="comment-text" name="" id="" cols="30" rows="10">我爱科技论坛VIP视频电影免费看啦！</textarea>
+                </form>
+                <a href="#" class="commit-comment">提交评论</a>
+                <a href="#" class="collect-comment">收藏电影</a>
+            </div>
+        </div>
+
+        <!--电影评论的内容信息-->
+        <div class="comment-con">
+            <span class="title">电影评论</span>
+            <div class="comment-content">
+                <div class="userlogo">
+                    <img src="images/userlogo.svg" alt="">
+                </div>
+                <div class="usercontent">
+                    <div class="usercontent-title">
+                        <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                    </div>
+                    <div class="usercontent-con">
+                        这个电影真好看呀！
+                    </div>
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="userlogo">
+                    <img src="images/userlogo.svg" alt="">
+                </div>
+                <div class="usercontent">
+                    <div class="usercontent-title">
+                        <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                    </div>
+                    <div class="usercontent-con">
+                        这个电影真好看呀！
+                    </div>
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="userlogo">
+                    <img src="images/userlogo.svg" alt="">
+                </div>
+                <div class="usercontent">
+                    <div class="usercontent-title">
+                        <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                    </div>
+                    <div class="usercontent-con">
+                        这个电影真好看呀！
+                    </div>
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="userlogo">
+                    <img src="images/userlogo.svg" alt="">
+                </div>
+                <div class="usercontent">
+                    <div class="usercontent-title">
+                        <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                    </div>
+                    <div class="usercontent-con">
+                        这个电影真好看呀！
+                    </div>
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="userlogo">
+                    <img src="images/userlogo.svg" alt="">
+                </div>
+                <div class="usercontent">
+                    <div class="usercontent-title">
+                        <a href="#">小张</a><span>评论于 2017-03-01 09:12:51</span>
+                    </div>
+                    <div class="usercontent-con">
+                        这个电影真好看呀！
+                    </div>
+                </div>
+            </div>
+
+            <!--评论分页-->
+            <div class="comments-page">
+                <div class="w">
+                    <ul>
+                        <li><a class="page-btn" href="#">首页</a></li>
+                        <li><a class="page-btn" href="#">上一页</a></li>
+                        <li><a class="page-btn" href="#">1&nbsp;/&nbsp;10</a></li>
+                        <li><a class="page-btn" href="#">下一页</a></li>
+                        <li><a class="page-btn" href="#">尾页</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<!--comment start-->
+
+
+<!--footer start-->
+<div class="footer clearfix">
+    <div class="w">
+        <div class="footer-links">
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">关于我们</a></dt>
+                <dd><a href="#">联系我们</a></dd>
+                <dd><a href="#">网站地图</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">投稿须知</a></dd>
+            </dl>
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">联系我们</a></dt>
+                <dd><a href="#">邮箱</a></dd>
+                <dd><a href="#">微博</a></dd>
+                <dd><a href="#">QQ群</a></dd>
+                <dd><a href="#">微信</a></dd>
+            </dl>
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">网站服务</a></dt>
+                <dd><a href="#">创业报道</a></dd>
+                <dd><a href="#">广告支持</a></dd>
+                <dd><a href="#">网站推广</a></dd>
+                <dd><a href="#">商务合作</a></dd>
+            </dl>
+            <dl>
+                <!--注意dl下面有dt和dd两个级别，别搞混了-->
+                <dt><a href="#">帮助中心</a></dt>
+                <dd><a href="#">登陆注册</a></dd>
+                <dd><a href="#">找回密码</a></dd>
+                <dd><a href="#">自助服务</a></dd>
+                <dd><a href="#">资源下载</a></dd>
+            </dl>
+            <dl class="last" id="lastlogo">
+                <dt><a href="#">关注我们</a></dt>
+                <dd><a href="#">微信</a></dd>
+                <dd><a href="#">QQ群</a></dd>
+                <dd><a href="#">新浪</a></dd>
+                <dd><a href="#">邮箱</a></dd>
+                <div class="img-show" id="imgshow">
+                    <img src="images/weixin.jpg" alt="">
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+<!--footer end-->
+
+<script src="js/xframe-min-1.0.js" type="text/javascript"></script>
+<script src="js/base.js" type="text/javascript"></script>
+</body>
+</html>
