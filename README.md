@@ -14,6 +14,7 @@
 - 6. 用户中心：这部分实现了修改密码，评论，登录，日志管理，收藏电影的功能，用户可以自由切换
 
 ## 项目预览
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.gif)
 - 主页面
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/00.png)
 - 登录页面
