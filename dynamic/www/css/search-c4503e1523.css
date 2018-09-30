@@ -1,0 +1,158 @@
+@charset "UTF-8";
+.search {
+    padding-top: 110px;
+    padding-bottom: 400px;
+    width: 100%;
+    height: 150px
+}
+
+.search-bar {
+    height: 38px;
+    line-height: 38px;
+    padding-left: 25px;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    background-color: #F8F8F8
+}
+
+.site-nav .site-nav-search {
+    margin-left: -18px;
+    margin-bottom: 13px;
+    margin-top: 13px
+}
+
+.site-nav .site-nav-search input {
+    width: 450px;
+    height: 42px;
+    border-radius: 21px 0 0 21px;
+    border: 2px solid #FF603C;
+    background-color: rgba(0, 0, 0, .1);
+    padding-left: 20px
+}
+
+.site-nav .site-nav-search input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset
+}
+
+.site-nav .site-nav-search button {
+    width: 110px;
+    height: 46px;
+    border-radius: 0 23px 23px 0;
+    background-color: #FF603C;
+    border-color: #FF603C;
+    font: 18px/46px 'Microsoft YaHei';
+    color: #F1F1F1
+}
+
+.site-nav .site-nav-search button:hover {
+    background-color: #ff8042
+}
+
+.search-con-l {
+    width: 61%;
+    float: left
+}
+
+.search-con-r {
+    border-left: 1px solid #E1E1E1;
+    height: 557px;
+    width: 38%;
+    float: left;
+    position: relative
+}
+
+.search-con-r .search-tab {
+    padding-top: 0;
+    float: left;
+    height: 50px;
+    border-bottom: 1px solid #E1E1E1
+}
+
+.search-con-r .search-tab-con {
+    margin-left: 15px;
+    padding-top: 0;
+    float: left
+}
+
+.search-tab-con-l {
+    width: 75px;
+    height: 75px;
+    float: left
+}
+
+.search-tab-con-r {
+    font-size: 14px;
+    margin-left: 25px;
+    float: left
+}
+
+.search-tab-con-r span {
+    margin-left: 15px
+}
+
+.search-con-r .search-tab-con li {
+    width: 100%;
+    height: 150px
+}
+
+.search-con-r .search-tab li {
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    width: 152px;
+    margin-left: -1px;
+    float: left;
+    cursor: pointer
+}
+
+.search-con {
+    font-size: 14px
+}
+
+.search-content ul {
+    padding-top: 20px;
+    height: 150px
+}
+
+.search-content ul li {
+    margin-top: 15px
+}
+
+.search-content-left {
+    float: left;
+    width: 180px;
+    height: 100px;
+    text-align: center;
+    font: 40px 'Microsoft YaHei';
+    line-height: 100px
+}
+
+.search-content-left:hover {
+    font: 43px 'Microsoft YaHei';
+    line-height: 100px
+}
+
+.search-content-left a {
+    display: block;
+    width: 180px;
+    height: 100px
+}
+
+.search-content-right {
+    margin-left: 20px;
+    float: left
+}
+
+.search-content-title {
+    margin-top: 10px;
+    font-size: 18px
+}
+
+.search-con {
+    margin-top: 5px
+}
+
+.search-con-r .search-tab .active {
+    color: #FF603C
+}

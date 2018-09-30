@@ -1,0 +1,1 @@
+angular.module("movielist.directives.auto_active",[]).directive("autoActive",["$location",function(i){return{link:function(t,e,o){t.$location=i,t.$watch("$location.url()",function(t,i){var a=e.children().attr("href").substr(1);t.startsWith(a)&&(e.parent().children().removeClass(o.autoActive),e.addClass(o.autoActive))})}}}]);
