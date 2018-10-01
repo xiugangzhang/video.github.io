@@ -25,3 +25,6 @@
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/03.png)
 - 电影播放页面
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/04.png)
+- 电影弹幕功能
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/05.jpg)
+
