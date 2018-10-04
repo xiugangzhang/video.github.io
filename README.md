@@ -2,8 +2,8 @@
 ## 项目预览
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.gif)
 - 主页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/index.jpg)
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/tvs.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/tv.jpg)
 - 登录页面
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/login.jpg)
 - 注册页面
