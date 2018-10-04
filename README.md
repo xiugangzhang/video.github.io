@@ -12,7 +12,9 @@
 - 电影播放页面
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/04.png)
 - 电影弹幕功能
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/danmu.gif)
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/05.jpg)
+
 
 
 ## 视频网站项目静态页面目前已经完成的功能：
