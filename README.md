@@ -2,15 +2,16 @@
 ## 项目预览
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.gif)
 - 主页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/00.png)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/index.png)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/tvs.png)
 - 登录页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/01.png)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/login.png)
 - 注册页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/02.png)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/register.png)
 - 会员中心
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/03.png)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/user.png)
 - 电影播放页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/04.png)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/play.png)
 - 电影弹幕功能
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/danmu.gif)
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/05.jpg)
