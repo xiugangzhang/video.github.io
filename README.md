@@ -1,4 +1,18 @@
 ## 在线体验地址:http://vip.52tech.tech/
+## 项目预览
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.gif)
+- 主页面
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/00.png)
+- 登录页面
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/01.png)
+- 注册页面
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/02.png)
+- 会员中心
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/03.png)
+- 电影播放页面
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/04.png)
+- 电影弹幕功能
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/05.jpg)
 
 
 ## 视频网站项目静态页面目前已经完成的功能：
@@ -59,18 +73,5 @@
 - 6. 用户中心：这部分实现了修改密码，评论，登录，日志管理，收藏电影的功能，用户可以自由切换
 
 
-## 项目预览
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.gif)
-- 主页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/00.png)
-- 登录页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/01.png)
-- 注册页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/02.png)
-- 会员中心
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/03.png)
-- 电影播放页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/04.png)
-- 电影弹幕功能
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/05.jpg)
+
 
