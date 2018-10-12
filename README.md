@@ -86,6 +86,7 @@ var pool = mysql.createPool({
  ```
  将上面的IP地址和端口号修改为服务器的IP地址和端口号即可。
  - 6. 在线演示站点：http://vip.52tech.tech
+ - 7. 对于安装和使用的过程中如果有什么问题和建议，也欢迎交流和提出建议，联系邮箱：tech52admin@126.com
 
 
 
