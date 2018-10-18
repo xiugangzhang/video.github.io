@@ -25,7 +25,7 @@ exports.showComment = function (req, res, next) {
     }
 
     // console.log(params);
-    //console.log(pageSize, pageNow)
+    // console.log(pageSize, pageNow)
 
     // 获取
     if (pageNow === 1) {
@@ -44,8 +44,8 @@ exports.showComment = function (req, res, next) {
             let ret = [result[0], result[1], result[2], result[3], result[4]];
             // 向上取整
             let pageNum = Math.ceil(result.length / pageSize);
-            //console.log(pageNum, ret)
-            return res.render('user', {
+             // console.log('----------------------------1111' ,ret)
+            return res.json({
                 code : 1,
                 comments: ret,
                 pageNum : pageNum
@@ -67,9 +67,9 @@ exports.showComment = function (req, res, next) {
             element.addtime = moment(element.addtime).startOf('second').fromNow();
         })
 
-        // console.log(result)
+        // console.log('------------------------------222',result)
         // 开始渲染数据到前台
-        res.json('play', {
+        res.json({
             user : req.session.user,
             code: 1,
             comments: result
