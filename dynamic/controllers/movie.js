@@ -455,3 +455,25 @@ exports.doSearchMovieOnline = function (req, res, next) {
         }
     })
 }
+
+
+
+/**
+ * 专门用于下载数据库中的电影图片到本地，以电影编号的ID来命名
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.downloadImages = function (req, res, next) {
+    Movie.getAllMovies(function (err, result) {
+        if (err) {
+            return next(err);
+        }
+        
+        result.forEach(function (element) {
+            let newPath = './www/uploads/movie/' + element.id+ '.jpg';
+            // 开始下载图片数据信息
+            request(element.logo).pipe(fs.createWriteStream(newPath));
+        });
+    })
+}
