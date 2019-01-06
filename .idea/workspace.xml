@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4b7a2c6f-69d1-4328-920a-d6d0876fd3f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dynamic/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dynamic/controllers/install.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dynamic/test.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dynamic/views/install.xtpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dynamic/www/css/install-fcad458z.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/others.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/others.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/play.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/play.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/controllers/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/controllers/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/controllers/movie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/controllers/play.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/controllers/play.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/models/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/movies.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/tvs.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/video.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/video.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic/views/play.xtpl" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic/views/play.xtpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/00.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/00.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/01.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/02.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/03.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/04.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/05.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/big7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/big7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/danmu.gif" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/danmu.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/login.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/movie.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/movie.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/movie.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/movie.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/play.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/play.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/preview.gif" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/preview.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/preview.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/preview.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/register.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/register.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/search.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/search.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/tv.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/tv.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/user.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/user.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/userlogo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/userlogo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/weixin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/weixin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/xframe-min-1.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/xframe-min-1.0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/user.html" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dynamic/router.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dynamic/views/install.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1917">
+              <caret line="92" column="44" lean-forward="true" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dynamic/models/db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="53" column="37" lean-forward="true" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dynamic/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="315">
+                <caret line="75" column="53" selection-start-line="75" selection-start-column="53" selection-end-line="75" selection-end-column="53" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>127</find>
+      <find>s</find>
+      <find>www</find>
+      <find>127.0.0.1</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/dynamic/app.js" />
+        <option value="$PROJECT_DIR$/dynamic/views/install.html" />
+        <option value="$PROJECT_DIR$/dynamic/www/css/others-3b2e4ee3ef.css" />
+        <option value="$PROJECT_DIR$/dynamic/config.js" />
+        <option value="$PROJECT_DIR$/dynamic/controllers/play.js" />
+        <option value="$PROJECT_DIR$/dynamic/config.properties" />
+        <option value="$PROJECT_DIR$/dynamic/router.js" />
+        <option value="$PROJECT_DIR$/dynamic/views/play.xtpl" />
+        <option value="$PROJECT_DIR$/dynamic/www/css/install-fcad458z.css" />
+        <option value="$PROJECT_DIR$/dynamic/test.sql" />
+        <option value="$PROJECT_DIR$/dynamic/controllers/admin.js" />
+        <option value="$PROJECT_DIR$/dynamic/controllers/index.js" />
+        <option value="$PROJECT_DIR$/dynamic/controllers/movie.js" />
+        <option value="$PROJECT_DIR$/dynamic/models/movie.js" />
+        <option value="$PROJECT_DIR$/dynamic/models/db.js" />
+        <option value="$PROJECT_DIR$/dynamic/controllers/install.js" />
+        <option value="$PROJECT_DIR$/dynamic/video.sql" />
+        <option value="$PROJECT_DIR$/dynamic/.gitignore" />
+        <option value="$PROJECT_DIR$/dynamic/views/install.xtpl" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-404" />
+    <option name="y" value="658" />
+    <option name="width" value="1386" />
+    <option name="height" value="755" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vip.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vip.github.io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vip.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vip.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="dynamic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vip.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vip.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="dynamic" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vip.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vip.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="ts.external.directory.path" value="D:\Webstorm2018.3\WebStorm 2018.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\WebApp\vip.github.io\V1.0.2\vip.github.io\dynamic" />
+      <recent name="D:\VIPvideo2018\vip.github.io" />
+      <recent name="D:\VIPvideo2018\vip.github.io\static" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b7a2c6f-69d1-4328-920a-d6d0876fd3f5" name="Default Changelist" comment="" />
+      <created>1546677622910</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546677622910</updated>
+      <workItem from="1546677624276" duration="26203000" />
+      <workItem from="1546764398778" duration="6708000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="32911000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-256" y="154" width="1386" height="755" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14391692" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.1414791" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="TypeScript" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1459431" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.29179648" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="TypeScript" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/node_modules/.yarn-integrity">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yarn.lock" />
+    <entry file="file://$PROJECT_DIR$/dynamic/data/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1247" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/CNAME" />
+    <entry file="file://$PROJECT_DIR$/dynamic/www/html/view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <folding>
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/views/install.html" />
+    <entry file="file://$PROJECT_DIR$/dynamic/views/login.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="2027" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/views/index.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1308#1312#1" expanded="true" />
+            <element signature="e#1363#1367#1" expanded="true" />
+            <element signature="e#2110#2116#0" expanded="true" />
+            <element signature="e#2702#2708#0" expanded="true" />
+            <element signature="e#2978#2984#0" expanded="true" />
+            <element signature="e#2985#2991#0" expanded="true" />
+            <element signature="e#848#854#0" expanded="true" />
+            <element signature="e#848#854#0" expanded="true" />
+            <element signature="e#848#854#0" expanded="true" />
+            <element signature="e#847#853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/www/css/others-3b2e4ee3ef.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" lean-forward="true" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="99" column="15" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/www/js/jquery-dec70978ba.twbsPagination.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3158" selection-start-column="3158" selection-end-column="3158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/controllers/play.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/node_modules/mysql/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/node_modules/@types/node/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="5138" column="66" selection-start-line="5138" selection-start-column="66" selection-end-line="5138" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/models/preview.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/logs/reqlog/req-2019-01-05.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/tvs.sql" />
+    <entry file="file://$PROJECT_DIR$/dynamic/www/css/install-fcad458z.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/controllers/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1404">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/controllers/comment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/controllers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-771">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/controllers/movie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5508">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/test.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="790">
+          <caret line="39" column="125" lean-forward="true" selection-start-line="29" selection-end-line="39" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/movies.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/views/404.xtpl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/views/play.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5250" selection-start-column="5250" selection-end-column="5250" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#span#3;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#4273#4279#0" expanded="true" />
+            <element signature="e#4280#4286#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/video.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/controllers/install.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/models/movie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="131" column="3" lean-forward="true" selection-start-line="131" selection-start-column="3" selection-end-line="131" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-180">
+            <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/views/install.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1917">
+          <caret line="92" column="44" lean-forward="true" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="315">
+            <caret line="75" column="53" selection-start-line="75" selection-start-column="53" selection-end-line="75" selection-end-column="53" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dynamic/models/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="53" column="37" lean-forward="true" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

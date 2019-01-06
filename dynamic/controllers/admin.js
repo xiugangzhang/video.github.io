@@ -155,7 +155,6 @@ exports.doUser = function (req, res, next) {
         info
     });
 
-    // console.log('开始修改数据信息量---------------------------------------------', user);
     user.updateinfo(function (err, result) {
         if (err) {
             return next(err);
@@ -212,19 +211,4 @@ exports.doDelete = function (req, res, next) {
     })
 }
 
-
-/**
- * 展现首页的预告页面
- * @param req
- * @param res
- * @param next
- */
-exports.showPreview = function (req, res, next) {
-    /*Preview.getPreview(function (err, result) {
-        if (err) {
-            return next(err);
-        }
-        res.render('admin/previewlist');
-    })*/
-}
 

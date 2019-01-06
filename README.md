@@ -1,20 +1,20 @@
 ## 在线体验地址:http://vip.52tech.tech/
 ## 项目预览
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.gif)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/preview.gif)
 - 主页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/preview.jpg)
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/tv.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/preview.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/tv.jpg)
 - 登录页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/login.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/login.jpg)
 - 注册页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/register.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/register.jpg)
 - 会员中心
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/user.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/user.jpg)
 - 电影播放页面
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/play.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/play.jpg)
 - 电影弹幕功能
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/danmu.gif)
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/images/05.jpg)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/danmu.gif)
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/05.jpg)
 
 
 
@@ -60,33 +60,27 @@
 
  - 1. 确保电脑已经安装了NodeJS环境，运行版本尽量保持最新（V8以上吧），然后下载此安装包后解压到你的系统任意盘符下面的目录；
  - 2. 在当前解压文件夹的主目录，dynamic文件夹（包含package.json的那个文件夹）运行命令：npm install， 系统就会自动安装该程序的依赖包；
- - 3. 登录你的网站数据库管理界面（PHPAdmin）,如果是在本地测试的话，就使用Navicat等MYSQL数据库连接工具连接数据库，连接完成之后创建数据库名为video，设置数据库登录名root， 登录密码为123456。如果需要配置其他用户名或者密码，请进入到modes/db.js文件下面，修改代码11行/12行的位置，user和password改为你自己的用户名个密码就行；
+ - 3. 在以上的步骤都执行完成且正确的情况下，就可以在程序主目录下面（有app.js的那个目录）,运行命令
+ ```
+    node app.js
+ ```
+ 之后就会自动在浏览器中打开本程序安装的主界面；
+ - 4. 如果是windows环境下，本程序提供了可视化的安装。用户可在程序的安装界面输入数据库名、数据库主机地址、数据库用户名、数据库密码，之后点击按钮立即安装即可，在输入的参数全部正确的情况下，就会后台自动安装程序，安装成功之后会自动跳转到网站首页；
+ - 5. 如果是Linux环境下，请在程序的根目录下面（与app.js同级目录）创建一个config.properties文件，并将下面的内容复制到这个配置文件里面即可，请确保这里的配置信息和你的数据库配置信息完全一致；
 ```
-var pool = mysql.createPool({
-    connectionLimit : 50,     // 配置数据库连接池大小
-    host : '192.168.1.109',   // 这里修改为你的数据库主机IP（如果是本地测试：默认为localhost或127.0.0.1）
-    database : 'video',       // 导入数据库文件之后，再次确认一些你的数据库名称
-    user : 'root',            // mysql数据库用户名
-    password : '123456'       // mysql数据库密码
-})
-
+database=video           // 数据库名        
+host=localhost           // 这里修改为你的数据库主机IP（如果是本地测试：默认为localhost或127.0.0.1）
+user=root                // mysql数据库用户名
+password=123456          // mysql数据库密码   
 ```
- 
- - 4. 数据库环境配置完成之后，打开解压文件夹里面的video.sql数据库脚本文件，进入Navicat等数据库管理工具，运行执行脚本文件，脚本执行成功之后就会在已经创建好的数据库下面创建程序运行所需要的数据表文件；
- - 5. 在以上的步骤都执行完成且正确的情况下，就可以在程序主目录下面（有app.js的那个目录）,先打开app.js文件，然后找到代码：server.listen(8080, '192.168.1.101', function () {})，修改为你自己的主机相应的IP地址和端口号，然后执行命令，node app.js，在以上的配置都没出错的情况下，这里就会正常启动程序了，然后进入浏览器，输入IP地址和端口号，就会进入到程序的主页了。
+ -6. 安装程序成功之后，默认数据库是没有测试数据的，首页可能是没有数据展示的，如果需要查看效果，需要用户手动将本程序提供的test.sql文件导入到数据库即可。用户只需要登录你的网站数据库管理界面（PHPAdmin）,如果是在本地测试的话，就使用Navicat等MYSQL数据库连接工具连接数据库，连接完成之后创建数据库名为video，设置数据库登录名root， 登录密码为123456。
+ -7. 此外，在配置完成以上步骤之后，如果发现不能正常使用弹幕功能，请修改views/play.xtpl文件下,找到代码此处位置
  ```
- server.listen(8080, '192.168.1.108', function () {       // 这里修改为你自己的电脑的IP地址和端口号
-    console.log('Server is listening at port 8080…………');
-})
- ```
- 
- - 5. 此外，在配置完成以上步骤之后，如果发现不能正常使用弹幕功能，请修改views/play.xtpl文件下,找到代码此处位置
- ```
- var e,t=io.connect("http://192.168.1.101:8080");
+ var e,t=io.connect("http://127.0.0.1");
  ```
  将上面的IP地址和端口号修改为服务器的IP地址和端口号即可。
- - 6. 在线演示站点：http://vip.52tech.tech
- - 7. 对于安装和使用的过程中如果有什么问题和建议，也欢迎交流和提出建议，联系邮箱：tech52admin@126.com
+ - 8. 在线演示站点：http://vip.52tech.tech
+ - 9. 对于安装和使用的过程中如果有什么问题和建议，也欢迎交流和提出建议，联系邮箱：tech52admin@126.com
 
 
 

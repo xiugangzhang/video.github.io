@@ -4,7 +4,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for colmovie
 -- ----------------------------
-DROP TABLE IF EXISTS `colmovie`;
+
 CREATE TABLE `colmovie` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
   `movie_url` varchar(50) DEFAULT NULL,
@@ -16,7 +16,6 @@ CREATE TABLE `colmovie` (
 -- ----------------------------
 -- Table structure for comments
 -- ----------------------------
-DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `content` varchar(500) DEFAULT NULL,
@@ -29,7 +28,6 @@ CREATE TABLE `comments` (
 -- ----------------------------
 -- Table structure for interface
 -- ----------------------------
-DROP TABLE IF EXISTS `interface`;
 CREATE TABLE `interface` (
   `id` int(11) NOT NULL,
   `interface_name` varchar(255) DEFAULT NULL,
@@ -41,7 +39,6 @@ CREATE TABLE `interface` (
 -- ----------------------------
 -- Table structure for movies
 -- ----------------------------
-DROP TABLE IF EXISTS `movies`;
 CREATE TABLE `movies` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
   `title` varchar(150) DEFAULT NULL,
@@ -60,7 +57,6 @@ CREATE TABLE `movies` (
 -- ----------------------------
 -- Table structure for preview
 -- ----------------------------
-DROP TABLE IF EXISTS `preview`;
 CREATE TABLE `preview` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(150) DEFAULT NULL,
@@ -73,7 +69,6 @@ CREATE TABLE `preview` (
 -- ----------------------------
 -- Table structure for tvs
 -- ----------------------------
-DROP TABLE IF EXISTS `tvs`;
 CREATE TABLE `tvs` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) DEFAULT NULL,
@@ -87,7 +82,6 @@ CREATE TABLE `tvs` (
 -- ----------------------------
 -- Table structure for userlog
 -- ----------------------------
-DROP TABLE IF EXISTS `userlog`;
 CREATE TABLE `userlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login_time` datetime DEFAULT NULL,
@@ -100,7 +94,6 @@ CREATE TABLE `userlog` (
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(50) DEFAULT NULL,
@@ -112,3 +105,5 @@ CREATE TABLE `users` (
   `addtime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=gbk;
+
+

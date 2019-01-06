@@ -11,6 +11,7 @@ const config = require('./config');
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);     // 引入socket.io模块， 并且绑定到服务器
 const log4js = require('./utils/log');
+const process = require('child_process');
 const logger = log4js.getLogger();
 let usernum = 0;                        // 定义一个全局变量
 
@@ -63,8 +64,9 @@ if (config.isDebug) {
 
 
 // 开启监听端口 server
-server.listen(8080, '192.168.1.108', function () {
-    console.log('Server is listening at port 8080…………');
+server.listen(80, '127.0.0.1', function () {
+    console.log('Server is listening at port 80…………');
+    process.exec('start http://127.0.0.1');
 })
 
 

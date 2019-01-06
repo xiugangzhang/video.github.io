@@ -4,8 +4,9 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const config = require('./config');
+const fs = require('fs');
 
-
+const installController = require('./controllers/install');
 const indexController = require('./controllers/index');
 const userController = require('./controllers/user');
 const playController = require('./controllers/play');
@@ -15,7 +16,9 @@ const colmovieController = require('./controllers/moviecol');
 
 
 // 前台路由控制中心-------------------------------------------------------------------------------------------------------------------
-router.get('/', indexController.showIndex);                             // 用户首页信息的展示
+router.get('/', [checkInstall, indexController.showIndex]);                             // 用户首页信息的展示
+router.get('/install', installController.showInstallPage);
+router.post('/install', installController.doInstall);
 router.post('/index/:currentPage', indexController.showIndex);
 // 之前在用户注册/登录之前进行检查(花式路由的写法， 等价于把两者之间分开来写， 会按照数组里面的元素顺序依次执行)
 router.get('/register', [checkLogin, userController.showRegister]);
@@ -54,7 +57,7 @@ if (config.isDebug) {
     });
 } else {
     app.use(function (err, req, res, next) {
-
+        // error
     })
 }
 
@@ -66,7 +69,6 @@ function checkLogin(req, res, next) {
         // 直接跳转到首页去
         return res.render('index');
     }
-    //res.render('register');
     // 如果用户没有登陆的话就继续向下执行， next（）之后就会执行下一个中间件
     next();
 }
@@ -78,6 +80,17 @@ function checkNotLogin(req, res, next) {
     }
     // 就执行下一个中间件
     next();
+}
+
+function checkInstall(req, res, next){
+    // 检查用户是否已经安装了程序
+    fs.exists("./config.properties",function(exists){
+        if(exists){
+            // 用户已经安装的话
+            return next();
+        }
+        return res.redirect('/install');
+    })
 }
 
 

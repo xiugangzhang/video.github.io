@@ -127,7 +127,6 @@ exports.addMovie = function (req, res, next) {
  * @param callback
  */
 function getMovieDetails(req, url, callback) {
-    // console.log('本轮抓取数据开始了-----------------------------------------------------')
     let movieList = [];
     request(url, function (err, res, body) {
         if (err) {
@@ -177,11 +176,8 @@ function getMovieDetails(req, url, callback) {
                     callback(err, null);
                 }
 
-                // console.log('本轮抓取到数据共计' + len + '条---------------------------------------------')
                 // 把当前数据挂载起来
                 req.app.locals.config.movielist = movieList;
-
-
                 callback(null, movieList);
             })
 

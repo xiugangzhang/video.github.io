@@ -52,7 +52,7 @@ exports.showIndex = function (req, res, next) {
                 return next(err);
             }
             // 设置url地址(传给前端页面)
-            previews.forEach(function (element) {
+            previews && previews.forEach(function (element) {
                 element.playurl = element.playurl.substring(element.playurl.lastIndexOf('/') + 1);
             });
 
@@ -69,7 +69,6 @@ exports.showIndex = function (req, res, next) {
                         return next(err);
                     }
                     // 这里需要对从数据库中取出来的url地址进行转换
-                    // console.log(result);
                     if (result) {
                         // 测试ok
                         result.forEach(function (element) {

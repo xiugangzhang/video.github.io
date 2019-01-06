@@ -1,0 +1,68 @@
+body {
+    background-color: #F1F1F1;
+}
+.install {
+    padding: 3px 0;
+    font: 18px 'Microsoft YaHei';
+    margin: 50px auto;
+    width: 600px;
+    height: 450px;
+    background-color:#fff;
+    text-align: center;
+}
+
+.form-title {
+    text-align: center;
+}
+.form-tips {
+    text-align: center;
+}
+.form-tips a {
+    color: #E91E63;
+    text-decoration: none;
+}
+.form-tips a:hover {
+    color: #AA1648;
+}
+.form-content {
+    text-align: center;
+}
+.form-content label {
+    float: left;
+    margin-left: 15px;
+    margin-top: 15px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700
+}
+
+.form-content button, .form-content input {
+    height: 46px;
+    font: 400 18px/46px 'Microsoft YaHei'
+}
+.form-content button {
+    margin-top: 25px;
+    width: 340px;
+    color: #fff;
+    background-color: #E91E63
+}
+
+.form-content button:hover {
+    background-color: #AA1648;
+    cursor: pointer
+}
+.form-content input {
+    padding-left: 5px;
+    width: 340px
+}
+.form-group table {
+    width: 500px;
+    margin: 0 auto;
+}
+.form-group table tr{
+    line-height: 40px;
+    height: 40px;
+}
+.error {
+    color: red;
+}

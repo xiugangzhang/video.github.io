@@ -17,7 +17,7 @@ exports.showPlay = function (req, res, next) {
     let url = req.params.url;
     // v_19rr7pi4k4.html
     url = 'http://www.iqiyi.com/' + url;
-    let parseUrl = 'http://www.82190555.com/video.php?url=';
+    let parseUrl = req.app.locals.config.parseUrl;
     let playUrl = parseUrl + url;
 
 
