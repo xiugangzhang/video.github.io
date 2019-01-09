@@ -66,8 +66,8 @@
  ```
  之后就会自动在浏览器中打开本程序安装的主界面；
  - 4. 如果是windows环境下，本程序提供了可视化的安装。用户可在程序的安装界面输入数据库名、数据库主机地址、数据库用户名、数据库密码，之后点击按钮立即安装即可，在输入的参数全部正确的情况下，就会后台自动安装程序，安装成功之后会自动跳转到网站首页；
+ ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/install.jpg)
  - 5. 如果是Linux环境下，请在程序的根目录下面（与app.js同级目录）创建一个config.properties文件，并将下面的内容删除注释后，复制到这个配置文件里面即可，请确保这里的配置信息和你的数据库配置信息完全一致；
-![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/install.jpg)
 ```
 database=video           // 数据库名        
 host=localhost           // 这里修改为你的数据库主机IP（如果是本地测试：默认为localhost或127.0.0.1）
