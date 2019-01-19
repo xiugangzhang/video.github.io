@@ -1,0 +1,292 @@
+{{extend ("./layout")}} {{#block ("head")}}
+<link rel="stylesheet" href="/www/css/index-6ffb15d628.css">{{/block}} {{#block ("body")}}
+<div class="main">
+    <div class="w">
+        <div class="main-slider">
+            <div class="main-item">
+                <a class="first" href="#">
+                </a>
+                <a class="current" href="/play/{{previews[0].playurl}}">
+                    <span class="current-title">{{previews[0].title}}</span><span class="current-content">{{previews[0].content}}</span>
+                </a>
+                <a href="/play/{{previews[1].playurl}}">
+                    <span>{{previews[1].title}}</span><span>{{previews[1].content}}</span>
+                </a>
+                <a href="/play/{{previews[2].playurl}}">
+                    <span>{{previews[2].title}}</span><span>{{previews[2].content}}</span>
+                </a>
+                <a href="/play/{{previews[3].playurl}}">
+                    <span>{{previews[3].title}}</span><span>{{previews[3].content}}</span>
+                </a>
+                <a href="/play/{{previews[4].playurl}}">
+                    <span>{{previews[4].title}}</span><span>{{previews[4].content}}</span>
+                </a>
+                <a href="/play/{{previews[5].playurl}}">
+                    <span>{{previews[5].title}}</span><span>{{previews[5].content}}</span>
+                </a>
+                <a href="/play/{{previews[6].playurl}}">
+                    <span>{{previews[6].title}}</span><span>{{previews[6].content}}</span>
+                </a>
+                <a href="/play/{{previews[7].playurl}}">
+                    <span>{{previews[7].title}}</span><span>{{previews[7].content}}</span>
+                </a>
+                <a class="last" href="#">
+                </a>
+            </div>
+            <a href="javascript:void(0);" class="arrow-l"><</a>
+            <a href="javascript:void(0);" class="arrow-r">></a>
+        </div>
+    </div>
+</div>
+<div class="movies clearfix">
+    <div class="w">
+        <div class="movies-type"><h1>影视推荐</h1>
+            <ul>
+                <li id="movie">电影</li>
+                <li id="tv">电视剧</li>
+                <li id="tvshow">更多…</li>
+            </ul>
+        </div>
+        <div class="movies-content">
+            <ul class="movies-ul" id="movie-content">{{#if (movies)}} {{#each (movies)}}
+                <li><a class="movies-img" href="/play/{{this.url}}"><img src="/www/uploads/movie/{{this.id}}.jpg"
+                                                                         alt=""></a>
+                    <div class="movie-top"><span class="movie-num">影院正在热映</span> <span class="movie-vip">VIP</span>
+                        <span class="movie-score"><strong class="score-strong">8</strong>.7</span></div>
+                    <div class="movies-info"><span class="movie-name">{{this.title}}</span> <span class="movie-desc">{{this.info}}</span>
+                    </div>
+                    <a class="movies-play" href="/play/{{this.url}}">▶&nbsp;播放</a></li>
+                {{/each}} {{/if}}
+            </ul>
+        </div>
+        <div class="tvs-content">
+            <ul class="movies-ul" id="tvs-content">{{#if (tvs)}} {{#each (tvs)}}
+                <li><a class="movies-img" href="/play/{{this.url}}"><img src="/www/images/c11.jpg" alt=""></a>
+                    <div class="movie-top"><span class="movie-num">影院正在热映</span> <span class="movie-vip">VIP</span>
+                        <span class="movie-score"><strong class="score-strong">8</strong>.7</span></div>
+                    <div class="movies-info"><span class="movie-name">{{this.title}}</span> <span class="movie-desc">{{this.info}}</span>
+                    </div>
+                    <a class="movies-play" href="/play/{{this.url}}">▶&nbsp;播放</a></li>
+                {{/each}} {{/if}}
+            </ul>
+        </div>
+        <div class="movies-page">
+            <div class="w">
+                <ul id="movies-ul">
+                    <li><a class="page-btn" href="#" id="firstPage">首页</a></li>
+                    <li><a class="page-btn" href="#" id="lastPage">上一页</a></li>
+                    <li><a class="page-btn" href="#"><i id="pageNow">1</i>&nbsp;/&nbsp;<i
+                            id="pageNum">{{pageNum}}</i></a></li>
+                    <li><a class="page-btn" href="#" id="nextPage">下一页</a></li>
+                    <li><a class="page-btn" href="#" id="endPage">尾页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}} {{#block ("foot")}}
+<script>
+    function imgShow() {
+    }
+
+    function toggleMivieButton() {
+        $(".movies-type ul li").on("click", function (s) {
+            $(".movies-type ul li").each(function () {
+                $(this).css("backgroundColor", "#ff8b20"), $(this).hasClass("current-click") && $(this).removeClass("current-click")
+            });
+            var e = $($.getTarget(s)), n = e.text();
+            switch (e.css("backgroundColor", "#ffbd23"), e.hasClass("current-click") || e.addClass("current-click"), n.toString().trim()) {
+                case"电影":
+                    $("#pageNow").text("1"), $(".movies-content").show(), $(".tvs-content").hide(), $(".tvshows-content").hide(), $(".animes-content").hide(), $.ajax({
+                        url: "/index/1", type: "POST", dataType: "json", data: {type: "movie"}, success: function (s) {
+                            if (s && 1 === s.code) {
+                                $("#pageNum").text(s.pageNum);
+                                for (var e, n = 0, a = s.movies, i = a.length, t = ""; n < i; n++) t += '<li>\n                            <a class="movies-img" href="/play/' + (e = a[n]).url + '">\n                                <img src="/www/uploads/movie/' + (e = a[n]).id + '.jpg" alt="">\n                            </a>\n                            <div class="movie-top">\n                                <span class="movie-num">影院正在热映</span>\n                                <span class="movie-vip">VIP</span>\n                                <span class="movie-score"><strong class="score-strong">8</strong>.7</span>\n                            </div>\n                            <div class="movies-info">\n                                <span class="movie-name">' + e.title + '</span>\n                                <span class="movie-desc">' + e.info + '</span>\n                            </div>\n                            <a class="movies-play" href="/play/' + e.url + '">\n                                ▶&nbsp;播放\n                            </a>\n                        </li>';
+                                $("#tvs-content").html(t)
+                            }
+                        }
+                    });
+                    break;
+                case"电视剧":
+                    $(".movies-content").hide(), $(".tvs-content").show(), $(".tvshows-content").hide(), $(".animes-content").hide(), $("#pageNow").text("1"), $.ajax({
+                        url: "/index/1", type: "POST", dataType: "json", data: {type: "tv"}, success: function (s) {
+                            if (s && 1 === s.code) {
+                                $("#pageNum").text(s.tvPageNum);
+                                for (var e, n = 0, a = s.tvs, i = a.length, t = ""; n < i; n++) t += '<li>\n                            <a class="movies-img" href="/play/' + (e = a[n]).url + '">\n                                <img src="/www/images/c11.jpg" alt="">\n                            </a>\n                            <div class="movie-top">\n                                <span class="movie-num">影院正在热映</span>\n                                <span class="movie-vip">VIP</span>\n                                <span class="movie-score"><strong class="score-strong">8</strong>.7</span>\n                            </div>\n                            <div class="movies-info">\n                                <span class="movie-name">' + e.title + '</span>\n                                <span class="movie-desc">' + e.info + '</span>\n                            </div>\n                            <a class="movies-play" href="/play/' + e.url + '">\n                                ▶&nbsp;播放\n                            </a>\n                        </li>';
+                                $("#tvs-content").html(t)
+                            }
+                        }
+                    });
+                    break;
+                case"更多…":
+                    window.open("/search")
+            }
+        }).on("mouseover", function (s) {
+            $($.getTarget(s)).css("backgroundColor", "#ffbd23")
+        }).on("mouseout", function (s) {
+            var e = $($.getTarget(s));
+            e.hasClass("current-click") || e.css("backgroundColor", "#ff8b20")
+        })
+    }
+
+    function topPlay() {
+        $(".movies-content ul li").on("mouseover", function (s) {
+            for (var e = $.getTarget(s).childNodes, n = e.length, a = 0; a < n; a++) "topplay" === e[a].className && (e[a].display = "block")
+        }).on("mouseout", function (s) {
+            for (var e = $.getTarget(s).childNodes, n = e.length, a = 0; a < n; a++) "topplay" === e[a].className && (e[a].display = "none")
+        })
+    }
+    function snow() {
+        //    1、定义一片雪花模板
+        var flake = document.createElement('div');
+        // 雪花字符 ❄❉❅❆✻✼❇❈❊✥✺
+        flake.innerHTML = '❆';
+        flake.style.cssText = 'position:absolute;color:#fff;';
+
+        //获取页面的高度 相当于雪花下落结束时Y轴的位置
+        var documentHieght = window.innerHeight;
+        //获取页面的宽度，利用这个数来算出，雪花开始时left的值
+        var documentWidth = window.innerWidth;
+
+        //定义生成一片雪花的毫秒数
+        var millisec = 100;
+        //2、设置第一个定时器，周期性定时器，每隔一段时间（millisec）生成一片雪花；
+        setInterval(function() { //页面加载之后，定时器就开始工作
+            //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
+            var startLeft = Math.random() * documentWidth;
+
+            //随机生成雪花下落 结束 时left的值，相当于结束时X轴的位置
+            var endLeft = Math.random() * documentWidth;
+
+            //随机生成雪花大小
+            var flakeSize = 5 + 20 * Math.random();
+
+            //随机生成雪花下落持续时间
+            var durationTime = 4000 + 10000 * Math.random();
+
+            //随机生成雪花下落 开始 时的透明度
+            var startOpacity = 0.7 + 0.3 * Math.random();
+
+            //随机生成雪花下落 结束 时的透明度
+            var endOpacity = 0.2 + 0.2 * Math.random();
+
+            //克隆一个雪花模板
+            var cloneFlake = flake.cloneNode(true);
+
+            //第一次修改样式，定义克隆出来的雪花的样式
+            cloneFlake.style.cssText += `
+                        left: ${startLeft}px;
+                        opacity: ${startOpacity};
+                        font-size:${flakeSize}px;
+                        top:-25px;
+                              transition:${durationTime}ms;
+                      `;
+
+            //拼接到页面中
+            document.body.appendChild(cloneFlake);
+
+            //设置第二个定时器，一次性定时器，
+            //当第一个定时器生成雪花，并在页面上渲染出来后，修改雪花的样式，让雪花动起来；
+            setTimeout(function() {
+                //第二次修改样式
+                cloneFlake.style.cssText += `
+                                left: ${endLeft}px;
+                                top:${documentHieght}px;
+                                opacity:${endOpacity};
+                            `;
+
+                //4、设置第三个定时器，当雪花落下后，删除雪花。
+                setTimeout(function() {
+                    cloneFlake.remove();
+                }, durationTime);
+            }, 0);
+
+        }, millisec);
+    }
+    function activePaginaton() {
+        $("#movies-ul li").on("click", function (s) {
+            $.preventDefault(s);
+            var e = $(".movies-type ul li"), n = "", c = "";
+            0 < e.length && e.each(function () {
+                "rgb(255, 189, 35)" === $(this).css("backgroundColor") && (n = $(this).text().trim())
+            }), "电视剧" === n ? c = "tv" : "电影" === n && (c = "movie");
+            var a = $($.getTarget(s)).text(), i = $("#pageNow").text(), t = $("#pageNum").text();
+            switch (t = $.isString(t) ? parseInt(t) : t, i = $.isString(i) ? parseInt(i) : i, a) {
+                case"首页":
+                    i = 1;
+                    break;
+                case"上一页":
+                    1 < i && (i -= 1);
+                    break;
+                case"下一页":
+                    i < t && (i += 1);
+                    break;
+                case"尾页":
+                    i = t
+            }
+            $("#pageNow").html(i), $.ajax({
+                url: "/index/" + i, type: "POST", dataType: "json", data: {type: c}, success: function (s) {
+                    if ("tv" === c && s && 1 === s.code) {
+                        for (var e = 0, n = (i = s.tvs).length, a = ""; e < n; e++) a += '<li>\n                            <a class="movies-img" href="/play/' + (t = i[e]).url + '">\n                                <img src="/www/images/c11.jpg" alt="">\n                            </a>\n                            <div class="movie-top">\n                                <span class="movie-num">影院正在热映</span>\n                                <span class="movie-vip">VIP</span>\n                                <span class="movie-score"><strong class="score-strong">8</strong>.7</span>\n                            </div>\n                            <div class="movies-info">\n                                <span class="movie-name">' + t.title + '</span>\n                                <span class="movie-desc">' + t.info + '</span>\n                            </div>\n                            <a class="movies-play" href="/play/' + t.url + '">\n                                ▶&nbsp;播放\n                            </a>\n                        </li>';
+                        $("#tvs-content").html(a)
+                    } else if (s && 1 === s.code) {
+                        var i, t;
+                        for (e = 0, n = (i = s.movies).length, a = ""; e < n; e++) a += '<li>\n                            <a class="movies-img" href="/play/' + (t = i[e]).url + '">\n                                <img src="/www/uploads/movie/' + (t = i[e]).id + '.jpg" alt="">\n                            </a>\n                            <div class="movie-top">\n                                <span class="movie-num">影院正在热映</span>\n                                <span class="movie-vip">VIP</span>\n                                <span class="movie-score"><strong class="score-strong">' + t.score + '</strong>.7</span>\n                            </div>\n                            <div class="movies-info">\n                                <span class="movie-name">' + t.title + '</span>\n                                <span class="movie-desc">' + t.info + '</span>\n                            </div>\n                            <a class="movies-play" href="/play/' + t.url + '">\n                                ▶&nbsp;播放\n                            </a>\n                        </li>';
+                        $("#movie-content").html(a)
+                    }
+                }
+            })
+        })
+    }
+
+    imgShow.prototype = {
+        imgs: [], num: -1, currentNumber: 0, elements: null, start: function (s) {
+            this.init(s)
+        }, init: function (s) {
+            this.initParas(s), this.autoPlay(), this.initEvent()
+        }, initParas: function (s) {
+            this.imgs = s, this.elements = $(".main-item a"), $(".main-slider").css("background", "url(" + this.imgs[0] + ")").css("background-size", "100%"), $(".main-slider").css("filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.imgs[0] + ',sizingMethod="scale")')
+        }, initEvent: function () {
+            this.mouseover(), this.click()
+        }, itemMove: function (s) {
+            var e = $(".main-item a");
+            if (null !== e) {
+                e.each(function () {
+                    var s = this.childNodes;
+                    s && 4 === s.length ? ("current" === this.className && (this.className = ""), s[1].className = "", s[2].className = "") : s && 3 === s.length && ("current" === this.className && (this.className = ""), s[0].className = "", s[1].className = "")
+                });
+                var n = e[s + 1];
+                n.className = "current", n && n.childNodes && 4 === n.childNodes.length ? (n.childNodes[1].className = "current-title", n.childNodes[2].className = "current-content") : n && n.childNodes && 3 === n.childNodes.length && (n.childNodes[0].className = "current-title", n.childNodes[1].className = "current-content")
+            }
+        }, mouseover: function () {
+            var a = this.elements, i = this;
+            a.on("mouseover", function (s) {
+                if ("first" !== this.className && "last" !== this.className) if (a.each(function () {
+                    var s = this.childNodes;
+                    s && 4 == s.length ? ("current" === this.className && (this.className = ""), s[1].className = "", s[2].className = "") : s && 3 === s.length && ("current" === this.className && (this.className = ""), s[0].className = "", s[1].className = "")
+                }), this.childNodes && 4 === this.childNodes.length) {
+                    var e = this.childNodes;
+                    this.className = "current", e[1].className = "current-title", e[2].className = "current-content", $(".main-slider").css("background", "url(" + i.imgs[$(this).index() - 1] + ")").css("background-size", "100%")
+                } else {
+                    var n = $.getTarget(s);
+                    e = n.childNodes;
+                    n.className = "current", e && 3 === e.length && (e[0].className = "current-title", e[1].className = "current-content", $(".main-slider").css("background", "url(" + i.imgs[$(n).index() - 1] + ")").css("background-size", "100%"))
+                }
+            })
+        }, click: function () {
+            var e = this;
+            $(".arrow-l").on("click", function (s) {
+                e.currentNumber--, e.currentNumber < 0 && (e.currentNumber = e.imgs.length - 1), $(".main-slider").css("background", "url(" + e.imgs[e.currentNumber] + ")").css("background-size", "100%"), e.itemMove(e.currentNumber), e.num = e.currentNumber
+            }), $(".arrow-r").on("click", function (s) {
+                e.currentNumber++, e.currentNumber > e.imgs.length - 1 && (e.currentNumber = 0), $(".main-slider").css("background", "url(" + e.imgs[e.currentNumber] + ")").css("background-size", "100%"), e.itemMove(e.currentNumber), e.num = e.currentNumber
+            })
+        }, autoPlay: function () {
+            var s = this;
+            setInterval(function () {
+                s.num++, $(".main-slider").css("background", "url(" + s.imgs[s.num % 8] + ")").css("background-size", "100%"), $(".main-slider").css("filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + s.imgs[s.num % 8] + ',sizingMethod="scale")'), s.currentNumber = s.num % 8, s.itemMove(s.currentNumber)
+            }, 4e3)
+        }
+    }, window.onload = function () {
+        var s = ["/www/images/big0.jpg", "/www/images/big1.jpg", "/www/images/big2.jpg", "/www/images/big3.jpg", "/www/images/big4.jpg", "/www/images/big5.jpg", "/www/images/big6.jpg", "/www/images/big7.jpg"];
+        new imgShow(s).start(s), toggleMivieButton(), topPlay(), activePaginaton(),snow()
+    }</script>{{/block}}

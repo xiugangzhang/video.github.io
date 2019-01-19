@@ -325,43 +325,6 @@ function saveImages(movieList, callback) {
 }
 
 
-/**
- * 获取电视剧列表信息
- * @param req
- * @param res
- * @param next
- */
-exports.doGetTVs = function (req, res, next) {
-    data.getTVsOnline(function (err, result) {
-        if (err) {
-            return next(err);
-        }
-        // 开始插入数据到数据库
-        let index = 0;
-        if (result.length > 0) {
-            result.forEach(function (element) {
-                let title = element.title;
-                let info = element.info;
-                let url = element.url;
-                let tv = new TV({
-                    title,
-                    info,
-                    url
-                });
-                tv.save(function (err, result) {
-                    if (err) {
-                        return next(err);
-                    }
-                    index++;
-
-                    if (result.length === index) {
-                        console.log('数据全部入库成功！')
-                    }
-                });
-            })
-        }
-    })
-}
 
 
 /**
@@ -454,22 +417,3 @@ exports.doSearchMovieOnline = function (req, res, next) {
 
 
 
-/**
- * 专门用于下载数据库中的电影图片到本地，以电影编号的ID来命名
- * @param req
- * @param res
- * @param next
- */
-exports.downloadImages = function (req, res, next) {
-    Movie.getAllMovies(function (err, result) {
-        if (err) {
-            return next(err);
-        }
-        
-        result.forEach(function (element) {
-            let newPath = './www/uploads/movie/' + element.id+ '.jpg';
-            // 开始下载图片数据信息
-            request(element.logo).pipe(fs.createWriteStream(newPath));
-        });
-    })
-}

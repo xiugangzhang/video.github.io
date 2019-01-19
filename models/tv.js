@@ -10,6 +10,7 @@ function TV(tv) {
     this.info = tv.info;
     this.url = tv.url;
     this.addtime = tv.addtime;
+    this.type = tv.type
 }
 
 
@@ -18,8 +19,8 @@ function TV(tv) {
  * @param callback
  */
 TV.prototype.save = function (callback) {
-    db.query('insert into tvs values (null, ?, ?, ?, NOW())', [
-        this.title, this.info, this.url
+    db.query('insert into tvs values (null, ?, ?, ?, NOW(), ?)', [
+        this.title, this.info, this.url, this.type
     ], function (err, result) {
         if (err) {
             return callback(err, null);

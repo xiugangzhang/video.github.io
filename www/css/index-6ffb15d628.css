@@ -1,0 +1,335 @@
+@charset "UTF-8";
+.main-item a, .main-slider ul li {
+    width: 250px;
+    color: #000;
+    font: 400 14px/37px 'Microsoft YaHei'
+}
+
+.arrow-l, .arrow-r, .main-item a {
+    display: block;
+    text-align: center
+}
+
+.main {
+    padding-top: 90px
+}
+
+.main-slider {
+    cursor: pointer;
+    height: 420px;
+    background-size: 100%;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=125, Strength=5);
+    -webkit-box-reflect: below -122px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.5, transparent), to(white))
+}
+
+.main-item, .main-slider ul {
+    position: absolute;
+    right: 70px
+}
+
+.main-item a {
+    height: 42px;
+    background-color: rgba(211, 201, 191, .8)
+}
+
+.main-slider .first {
+    width: 250px;
+    height: 25px;
+    background: -webkit-linear-gradient(rgba(211, 201, 191, .5), rgba(211, 201, 191, .8));
+    background: -moz-linear-gradient(top, rgba(211, 201, 191, .5) 100%, rgba(211, 201, 191, .8) 0);
+    background: -o-linear-gradient(top, rgba(211, 201, 191, .5) 100%, rgba(211, 201, 191, .8) 0);
+    background: -ms-linear-gradient(rgba(211, 201, 191, .5), rgba(211, 201, 191, .8))
+}
+
+.main-slider .last {
+    width: 250px;
+    height: 25px;
+    background: -webkit-linear-gradient(rgba(211, 201, 191, .8), rgba(211, 201, 191, .5));
+    background: -moz-linear-gradient(top, rgba(211, 201, 191, .8) 0, rgba(211, 201, 191, .5) 100%);
+    background: -o-linear-gradient(top, rgba(211, 201, 191, .8) 0, rgba(211, 201, 191, .5) 100%);
+    background: -ms-linear-gradient(rgba(211, 201, 191, .8), rgba(211, 201, 191, .5))
+}
+
+.main-slider ul li {
+    height: 42px;
+    background-color: rgba(211, 201, 191, .8);
+    text-align: center
+}
+
+.main-slider ul li:not(.first,.last) {
+    background-color: #F7F7F8;
+    cursor: pointer
+}
+
+.main-slider ul:hover {
+    cursor: pointer
+}
+
+.arrow {
+    position: relative;
+    height: 200px;
+    background-color: #1da1f2
+}
+
+.arrow-l, .arrow-r {
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    width: 28px;
+    height: 62px;
+    font: 400 22px/62px '宋体';
+    background: rgba(0, 0, 0, .3);
+    color: #fff
+}
+
+.arrow a:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, .6)
+}
+
+.arrow-r {
+    right: 320px
+}
+
+.arrow-l {
+    left: 0
+}
+
+.main-slider .current {
+    background-color: #F7F8F8;
+    height: 76px;
+    position: relative
+}
+
+.main-slider .current-title {
+    height: 30px;
+    font: 700 24px/30px '黑体';
+    color: #FF6428;
+    float: left;
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.main-slider .current-content {
+    float: left;
+    position: absolute;
+    bottom: 10px;
+    left: 15px
+}
+
+.movies {
+    margin-top: 15px
+}
+
+.movies-type {
+    float: left;
+    width: 100%;
+    margin-top: 22px
+}
+
+.movies-type h1 {
+    font: 700 24px/55px 'Microsoft YaHei';
+    margin-bottom: 10px;
+    border-left: 5px solid #ff8b20;
+    padding-left: 15px
+}
+
+.movies-type ul li {
+    float: left;
+    width: 107px;
+    height: 40px;
+    background-color: #ff8b20;
+    margin-right: 5px;
+    font: 400 18px/40px 'Microsoft YaHei';
+    text-align: center;
+    color: #fff
+}
+
+.movies-type ul li:hover {
+    cursor: pointer;
+    background-color: #ffbd23
+}
+
+.animes-content, .movies-content, .tvs-content, .tvshows-content {
+    margin-top: 16px;
+    padding-left: 10px;
+    float: left;
+    text-align: center;
+    position: relative
+}
+
+.animes-content ul, .movies-content ul, .tvs-content ul, .tvshows-content ul {
+    display: table;
+    text-align: center
+}
+
+.animes-content, .tvs-content, .tvshows-content {
+    display: none
+}
+
+.animes-content ul li, .movies-content ul li, .tvs-content ul li, .tvshows-content ul li {
+    float: left;
+    width: 195px;
+    height: 374px;
+    text-align: center;
+    color: #fff;
+    background-color: #F8F8F8;
+    margin-right: 10px;
+    margin-top: 12px;
+    padding: 0 14px
+}
+
+.movies-img, .movies-img img {
+    height: 262px;
+    width: 195px;
+    float: left
+}
+
+.movies-img {
+    display: block;
+    font: 400 18px/262px 'Microsoft YaHei';
+    color: #fff;
+    cursor: pointer;
+    z-index: 1
+}
+
+.movies-img img {
+    border-radius: 10px
+}
+
+.movies-info {
+    margin-top: 1px;
+    height: 56px;
+    width: 195px;
+    background-color: #FEFEFE;
+    float: left;
+    color: #000
+}
+
+.movies-info .movies-contentname {
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    width: 195px;
+    background-color: #fff;
+    font: 16px 'Microsoft YaHei'
+}
+
+.movies-info .movie-desc {
+    float: left;
+    display: block;
+    height: 28px;
+    width: 195px;
+    line-height: 28px;
+    font-size: 13px;
+    color: #999
+}
+
+.movie-top {
+    position: relative
+}
+
+.movie-vip {
+    float: left;
+    position: absolute;
+    width: 32px;
+    height: 20px;
+    background-color: #FC3F4C;
+    top: 4px;
+    right: 4px;
+    color: #fff;
+    font: 400 15px/20px 'Microsoft YaHei';
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer
+}
+
+.movie-num, .movie-score {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    text-align: center;
+    cursor: pointer
+}
+
+.movies-page ul li, .movies-play {
+    float: left;
+    border: 1px solid #2fa4e7
+}
+
+.movie-num {
+    width: 100px;
+    height: 20px;
+    left: 0;
+    bottom: -244px;
+    color: #FC3F4C;
+    line-height: 20px
+}
+
+.movie-score {
+    right: 10px;
+    bottom: -248px;
+    width: 38px;
+    height: 30px;
+    color: #FF5F33;
+    font: 14px/30px 'Microsoft YaHei';
+    transform: scale(1, 1.2);
+    -ms-transform: scale(1, 1.2);
+    -webkit-transform: scale(1, 1.2);
+    -moz-transform: scale(1, 1.2);
+    -o-transform: scale(1, 1.2)
+}
+
+.score-strong {
+    font-Size: 24px
+}
+
+.movies-play {
+    display: block;
+    font: 400 18px/40px 'Microsoft YaHei';
+    height: 40px;
+    line-height: 40px;
+    width: 195px;
+    color: #000;
+    cursor: pointer
+}
+
+.movies-play:hover {
+    background-color: #2fa4e7
+}
+
+.movies-page {
+    margin-top: 70px;
+    float: left;
+    position: relative
+}
+
+.movies-page ul {
+    position: absolute;
+    margin-left: -172px;
+    left: 50%
+}
+
+.movies-page ul li {
+    margin-left: -1px;
+    font: 400 14px/34px 'Microsoft YaHei';
+    height: 34px;
+    width: 68px;
+    background-color: #FEFEFE;
+    text-align: center
+}
+
+.movies-page ul li:hover {
+    background-color: #CCC;
+    cursor: pointer
+}
+
+

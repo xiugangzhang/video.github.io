@@ -10,7 +10,7 @@ let propertis = getProperties();
 
 // 数据库配置
 let config = {
-    connectionLimit : 50,
+    connectionLimit : 500,
     host : 'localhost',
     database : 'video',
     user : 'root',
