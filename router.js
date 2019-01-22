@@ -42,7 +42,6 @@ router.post('/userlog', userController.showUserlogs);                   // ç”¨æˆ
 router.get('/search', movieController.showSearchMovie);
 router.get('/search/:content', movieController.doSearchMovieOnline);
 router.post('/search', movieController.doSearchMovie);
-router.get('/addTV', movieController.doGetTVs);
 
 
 // 404 page
