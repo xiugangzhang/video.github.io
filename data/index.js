@@ -258,6 +258,12 @@ function downloadImages(callback) {
     setTimeout(function () {
         // 先清空之前的数据
         delDir('./www/uploads/movie/');
+        // 然后创建新的文件夹
+        if (!fs.existsSync('./www/uploads/movie/')) {
+            fs.mkdirSync("./www/uploads/movie/");
+        }
+
+
 
         // 下载数据库图片到本地
         Movie.getAllMovies(function (err, result) {
