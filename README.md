@@ -3,6 +3,8 @@
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/preview.gif)
 - 主页面
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/preview.jpg)
+- 搜索页面
+![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/search.png)
 - 登录页面
 ![image](https://github.com/xiugangzhang/vip.github.io/blob/master/static/images/login.jpg)
 - 注册页面
