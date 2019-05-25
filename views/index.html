@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我爱科技论坛-VIP视频免费看</title>
+    <!-- 页面关键词 keywords -->
+    <meta name="keywords" content="VIP视频,VIP影院,我爱科技影院,VIP视频免费看,VIP视频抢先看">
+    <!-- 页面描述内容 description -->
+    <meta name="description" content="我爱科技论坛VIP影院-看VIP视频，就来找我">
+    <!-- 定义网页作者 author -->
+    <meta name="author" content="我爱科技论坛, https://github.com/xiugangzhang">
+    <link rel="shortcut icon" href="/www/favicon.ico">
+    <link  rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/all.css">
+    <link rel="stylesheet" href="/www/css/base.css">
+<link rel="stylesheet" href="/www/css/index.css">
+</head>
+
+<!--顶部进度条-->
+<div class="progress" id="progress" style="height: 3px;background-color: red;z-index: 9999; position: fixed"></div>
+<!--头部-->
+<header class="header">
+    <div class="header-line"></div>
+    <div class="banner">
+        <!--logo 搜索栏-->
+        <div class="search">
+            <div class="searchIn clearFix">
+                <!--logo部分-->
+                <div class="video-logo" onclick="location.reload()">
+                    <img src="/www/images/video-logo.png" alt="">
+                    <span class="logo-title">看VIP视频<br/>就来找我吧</span>
+                </div>
+                <!--搜索框-->
+                <div class="searchMiddle">
+                    <i></i><input type="text" placeholder="流浪地球"><span onclick="window.open('/search/流浪地球', '_self')">搜全网</span>
+                </div>
+                <!--右边会员部分-->
+                <div class="searchRight">
+                    <ul>
+                        <li><p></p><span><a href="https://github.com/xiugangzhang/vip.github.io">源码</a></span></li>
+                        <li><p class="p2"></p><span><a href="/login">会员</a></span></li>
+                        <li><p class="p3"></p><span><a href="/user">收藏</a></span></li>
+                        <li><p class="p4"></p><span><a href="/user">上传</a></span></li>
+                    </ul>
+                    <a href="javascript:;" class="logo"><img src="/www/images/logo-80-80.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="search" id="search">
+            <div class="header-line"></div>
+            <div class="searchIn clearFix">
+                <!--logo部分-->
+                <div class="video-logo" onclick="location.reload()">
+                    <img src="/www/images/video-logo.png" alt="">
+                    <span class="logo-title">看VIP视频<br/>就来找我吧</span>
+                </div>
+                <ul class="searchUl clearFix">
+                    <li><a href="javascript:;"><i></i>首页</a></li>
+                    <li><a href="javascript:;"><i class="i2"></i>社区</a></li>
+                </ul>
+
+                <!--搜索框-->
+                <div class="searchMiddle">
+                    <i></i><input type="text" placeholder="流浪地球"><span onclick="window.open('/search/流浪地球', '_self')">搜全网</span>
+                </div>
+                <!--右边会员部分-->
+                <div class="searchRight">
+                    <ul>
+                        <li><p></p><span><a href="https://github.com/xiugangzhang/vip.github.io">源码</a></span></li>
+                        <li><p class="p2"></p><span><a href="/login">会员</a></span></li>
+                        <li><p class="p3"></p><span><a href="/user">收藏</a></span></li>
+                        <li><p class="p4"></p><span><a href="/user">上传</a></span></li>
+                    </ul>
+                    <a href="javascript:;"><img src="/www/images/logo-80-80.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <!--导航栏-->
+        <div class="nav">
+            <div class="navIn">
+                <ul class="clearFix">
+                    <li>
+                        <a href="#show_movie">电影</a>
+                    </li>
+                    <li>
+                        <a href="#show_tv">电视剧</a>
+                    </li>
+                    <li>
+                        <a href="/search/综艺">综艺</a>
+                    </li>
+                    <li>
+                        <a href="/search/VIP影院">VIP影院</a>
+                    </li>
+                    <li>
+                        <a href="/search/动漫">动漫</a>
+                    </li>
+                    <li>
+                        <a href="/search/少儿">少儿</a>
+                    </li>
+                    <li>
+                        <a href="/search/娱乐">娱乐</a>
+                    </li>
+                    <li>
+                        <a href="/search/音乐">音乐</a>
+                    </li>
+                    <li>
+                        <a href="/search/演唱会">演唱会</a>
+                    </li>
+                    <li>
+                        <a href="/search/美剧">美剧</a>
+                    </li>
+                    <li>
+                        <a href="/search/韩剧">韩剧</a>
+                    </li>
+                    <li>
+                        <a href="/search/纪录片">纪录片</a>
+                    </li>
+                    <li>
+                        <a href="/search/微电影">微电影</a>
+                    </li>
+                    <li>
+                        <a href="/search/新闻">新闻</a>
+                    </li>
+                    <li>
+                        <a href="/search/体育">体育</a>
+                    </li>
+                    <li><a href="/search/NBA">NBA</a></li>
+                    <li>
+                        <a href="/search/搞笑">搞笑</a>
+                    </li>
+                    <li>
+                        <a href="/search/游戏">游戏</a>
+                    </li>
+                    <li>
+                        <a href="/search/原创">原创</a>
+                    </li>
+                    <li>
+                        <a href="/search/时尚">时尚</a>
+                    </li>
+                    <li>
+                        <a href="/search/生活">生活</a>
+                    </li>
+                    <li>
+                        <a href="/search/拍客">拍客</a>
+                    </li>
+                    <li class="four"><i></i></li>
+                    <li class="vip"><a href="javascript:;">VIP</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--轮播图-->
+        <div class="bannerImg" id="banner">
+            <!--轮播图图片-->
+            <div>
+                {{#if (previews)}}
+                    {{#each (previews)}}
+                        <img src="/www/images/big{{xindex}}.jpg" alt="">
+                    {{/each}}
+                {{/if}}
+            </div>
+            <!--轮播图列表部分-->
+            <ul>
+                <li class="show"><a href="javascript:;">{{previews[0].title}}:{{previews[0].content}}</a></li>
+                {{#if (previews)}}
+                {{#each (previews)}}
+                    {{#if (xindex !== 0)}}
+                        <li><a href="/play/{{this.playurl}}">{{this.title}}：{{this.content}}</a></li>
+                     {{/if}}
+                {{/each}}
+                {{/if}}
+            </ul>
+            <!--透明遮罩层-->
+            <div class="mask"></div>
+        </div>
+    </div>
+</header>
+
+<!--主要内容部分-->
+<main class="main">
+    <!--今日焦点模块-->
+    <section class="section clearFix">
+        <div class="title clearFix">
+            <h2>今日热点</h2>
+            <p><a href="javascript:;">最新电影动态，海量电影任你看</a></p>
+            <span><em></em><a href="javascript:;">换一换</a></span>
+        </div>
+        <div class="list">
+            <div class="left">
+                <a href="javascript:;"><img src="" realImg="/www/images/list1.jpg" alt=""></a>
+                <div>
+                    <strong>《Big磅来了》成龙大哥模仿黄子韬唱rap</strong>
+                    <p>现场还吐槽黄子韬：“不知道在唱啥。”</p>
+                </div>
+            </div>
+            <ul class="right clearFix">
+                <li>
+                    <a href="javascript:;"><img src="" realImg="/www/images/list2.jpg" alt=""></a>
+                    <p>韩国国会表决通过中通弹劾案</p>
+                    <span>朴槿惠将被立即停职</span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="" realImg="/www/images/list3.jpg" alt=""></a>
+                    <p>陈小春版鹿鼎记5老婆齐聚</p>
+                    <span>回忆杀！她们美丽依旧</span>
+                </li>
+                <li class="li3">
+                    <a href="javascript:;"><img src="" realImg="/www/images/list4.jpg" alt=""></a>
+                    <p>被迫娶她人！唐嫣罗晋对视泪双流</p>
+                    <span>《锦绣未央》被迫娶她人！唐嫣罗晋对视泪双流</span>
+                </li>
+
+            </ul>
+            <ul class="right clearFix right-b">
+                <li>
+                    <a href="javascript:;"><img src="" realImg="/www/images/list5.jpg" alt=""></a>
+                    <p>韩国国会表决通过中通弹劾案</p>
+                    <span>朴槿惠将被立即停职</span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="" realImg="/www/images/list6.jpg" alt=""></a>
+                    <p>韩国国会表决通过中通弹劾案</p>
+                    <span>朴槿惠将被立即停职</span>
+                </li>
+                <li class="li3">
+                    <a href="javascript:;"><img src="" realImg="/www/images/list7.jpg" alt=""></a>
+                    <p>韩国国会表决通过中通弹劾案</p>
+                    <span>朴槿惠将被立即停职</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--最新鲜的预告花絮区-->
+    <section class="section clearFix alone">
+        <div class="title clearFix">
+            <h2>最新鲜的预告花絮区</h2>
+            <span><em></em><a href="javascript:;">OPPO专区</a></span>
+        </div>
+        <div class="list">
+            <ul class="right clearFix">
+                <li class="li1">
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/alone-1.jpg" alt="">
+                        <em>碧瑶复活？鬼历成鬼王女婿</em>
+                    </a>
+                    <i><img src="" realImg="/www/images/zizhi.png" alt=""></i>
+                    <p>《鬼吹灯之精绝古城[倒计时2天！]</p>
+                    <span>靳东陈乔恩带你摸金寻宝</span>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/alone-2.gif" alt="">
+                        <em>让人捧腹的沸沸过河</em>
+                    </a>
+                    <p>《地球动脉2》戳中笑点</p>
+                    <span>靳东陈乔恩带你摸金寻宝</span>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/alone-3.jpg" alt="">
+                        <em>独家花絮！靳东陈乔恩模型装扮</em>
+                    </a>
+                    <i><img src="" realImg="/www/images/vip.png" alt=""></i>
+                    <p>12.19《鬼吹灯之精绝古城》</p>
+                    <span>靳东陈乔恩带你摸金寻宝</span>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="" realImg="/www/images/alone-4.jpg" alt="">
+                    </a>
+                    <i><img src="" realImg="/www/images/zizhi.png" alt=""></i>
+                    <p>2016维密大秀全城回顾</p>
+                    <span>靳东陈乔恩带你摸金寻宝</span>
+                </li>
+                <li class="li3">
+                    <a href="javascript:;">
+                        <img src="" realImg="/www/images/alone-5.jpg" alt="">
+                    </a>
+                    <i><img src="" realImg="/www/images/zizhi.png" alt=""></i>
+                    <p>2016维密大秀全城回顾</p>
+                    <span>靳东陈乔恩带你摸金寻宝</span>
+                </li>
+            </ul>
+        </div>
+
+
+    </section>
+    <!--电影大片-->
+    <section id="show_movie" class="section clearFix alone">
+        <div class="title clearFix">
+            <h2>电影大片</h2>
+            <div class="titleRight">
+                <span><em></em><a href="javascript:;">换一换</a></span>
+            </div>
+        </div>
+        <div class="list moveBig">
+            <ul class="right clearFix moveBig">
+                {{#if (movies)}}
+                {{#each (movies)}}
+                    <li class="li1">
+                        <a href="/play/{{this.url}}" class="pos">
+                            <img src="" realImg="/www/uploads/movie/{{this.id}}.jpg" alt="">
+                            <em>{{this.title}}</em>
+                        </a>
+                        <p>{{this.info}}</p>
+                    </li>
+                {{/each}}
+                {{/if}}
+            </ul>
+        </div>
+    </section>
+    <!--电视剧大片-->
+    <section id="show_tv" class="section clearFix alone">
+        <div class="title clearFix">
+            <h2>电视剧</h2>
+            <div class="titleRight">
+                <span><em></em><a href="javascript:;">换一换</a></span>
+            </div>
+        </div>
+        <div class="list moveBig">
+            <ul class="right clearFix moveBig">
+                <li class="li1">
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/moveBig2.jpg" alt="">
+                        <em>碧瑶复活？鬼历成鬼王女婿</em>
+                    </a>
+                    <p>《青云志》周周见</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/moveBig1.jpg" alt="">
+                        <em>让人捧腹的沸沸过河</em>
+                    </a>
+                    <p>《地球动脉2》戳中笑点</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/moveBig2.jpg" alt="">
+                        <em>独家花絮！靳东</em>
+                    </a>
+                    <p>12.19《鬼吹灯之精绝古城》</p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="" realImg="/www/images/moveBig3.jpg" alt="">
+                    </a>
+                    <p>2016维密大秀全城回顾</p>
+                </li>
+                <li class="li3">
+                    <a href="javascript:;">
+                        <img src="" realImg="/www/images/moveBig4.jpg" alt="">
+                    </a>
+                    <p>2016维密大秀全城回顾</p>
+                </li>
+                <li class="li1">
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/moveBig1.jpg" alt="">
+                        <em>碧瑶复活？鬼历成鬼王女婿</em>
+                    </a>
+                    <p>《青云志》周周见</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/moveBig1.jpg" alt="">
+                        <em>让人捧腹的沸沸过河</em>
+                    </a>
+                    <p>《地球动脉2》戳中笑点</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pos">
+                        <img src="" realImg="/www/images/moveBig2.jpg" alt="">
+                        <em>独家花絮！靳东陈乔恩模型装扮</em>
+                    </a>
+                    <p>12.19《鬼吹灯之精绝古城》</p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="" realImg="/www/images/moveBig3.jpg" alt="">
+                    </a>
+                    <p>2016维密大秀全城回顾</p>
+                </li>
+                <li class="li3">
+                    <a href="javascript:;">
+                        <img src="" realImg="/www/images/moveBig4.jpg" alt="">
+                    </a>
+                    <p>2016维密大秀全城回顾</p>
+                </li>
+            </ul>
+        </div>
+
+
+    </section>
+</main>
+
+<!--返回顶部-->
+<div class="top">
+    <div class="toTop toTopX" id="toTop">
+        <p><i></i></p>
+        <span>返回顶部</span>
+    </div>
+    <div class="toTop">
+        <p><i class="i2"></i></p>
+        <span>意见反馈</span>
+    </div>
+</div>
+
+<!--底部-->
+<footer class="footer">
+    <div class="footUp">
+        <ul class="clearFix">
+            <li class="li1">
+                <p>热门频道</p>
+                <a href="javascript:;">电视剧</a><a href="javascript:;">综艺</a><a href="javascript:;">电影</a><a href="javascript:;">娱乐</a><a href="javascript:;">MV</a><a href="javascript:;">动漫</a><a href="javascript:;">游戏</a><a href="javascript:;">VIP影院</a><a href="javascript:;">英美剧</a><a href="javascript:;">纪录片</a><a href="javascript:;">新闻</a><a href="javascript:;">体育</a><a href="javascript:;">生活</a>
+            </li>
+            <li class="li2">
+                <p>特色推荐</p>
+                <a href="javascript:;">原创自媒体</a><a href="javascript:;">微电影</a><a href="javascript:;">电影</a><a href="javascript:;">娱乐</a>
+            </li>
+            <li class="li3">
+                <p>软件下载</p>
+                <a href="javascript:;">PC版</a><a href="javascript:;">iPhone版</a><a href="javascript:;">iPad版</a><a href="javascript:;">TV版</a><a href="javascript:;">Android Phone版</a>
+            </li>
+            <li class="li4">
+                <p>服务</p>
+                <a href="javascript:;">客服</a><a href="javascript:;">反馈</a><a href="javascript:;">帮助</a><a href="javascript:;">投诉</a><a href="javascript:;">免广告合作</a>
+            </li>
+        </ul>
+    </div>
+    <div class="footDown">
+        <ul>
+            <li><a href="javascript:;">关于腾讯 | </a><a href="javascript:;">About Tencent | </a><a href="javascript:;">服务条款 | </a><a href="javascript:;">广告服务 | </a><a href="javascript:;">腾讯招聘 | </a><a href="javascript:;">客服中心| </a><a href="javascript:;">网站导航</a>
+            <li>Copyright © 1998 - 2016 Tencent.<a href=""> All Rights Reserved.</a></li>
+            <li>腾讯公司 <a href="javascript:;">版权所有</a> <a href="javascript:;">腾讯网络文化经营许可证</a></li>
+        </ul>
+    </div>
+</footer>
+<script  src="/www/js/utils.js"></script>
+<script  src="/www/js/move.js"></script>
+<script  src="/www/js/index.js"></script>
+<script>
+    console.log('在线演示站点：我爱科技论坛http://www.52tech.tech, Github源码：https://github.com/xiugangzhang');
+</script>
+</body>
+</html>

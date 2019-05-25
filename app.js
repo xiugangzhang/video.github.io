@@ -38,7 +38,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // 配置模板引擎中间件
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'xtpl');
+app.engine('.html', require('xtpl').__express);
+app.set('view engine', 'html');
 
 
 // 挂载配置文件中的数据信息(密匙)

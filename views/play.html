@@ -1,0 +1,576 @@
+{{extend ("./layout")}}
+
+{{#block ("head")}}
+<link rel="stylesheet" href="/www/css/play.css">
+{{/block}}
+
+{{#block ("body")}}
+<div class="search clearfix">
+
+</div>
+
+<!--play start-->
+<div class="play clearfix">
+    <div class="w">
+        <div>
+
+        </div>
+        <div class="play-video">
+            <iframe id="video_iframe" frameborder="no" src="{{playUrl}}"></iframe>
+            <div class="video-top" id="video-top"></div>
+        </div>
+        <div class="play-intro">
+            <div class="play-intro-title">
+                <span class="movie-vip">VIP</span>
+                <span class="movie-name">{{movie.title}}</span>
+            </div>
+            <div class="play-intro-content">
+                <table class="play-intro-table">
+                    <tbody>
+                    <tr>
+                        {{# if(movie.type === '电视剧')}}
+                        <td>已更新</td>
+                        <td>25集</td>
+                        {{else}}
+                        <td>上映状态</td>
+                        <td>已上映</td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        <td>类型</td>
+                        {{# if (movie.type)}}
+                        <td>{{movie.type}}</td>
+                        {{else}}
+                        <td>搜索视频</td>
+                        {{/if}}
+
+                    </tr>
+                    <tr>
+                        <td>发布时间</td>
+                        {{#if (movie.addtime)}}
+                        <td>{{movie.addtime}}</td>
+                        {{else}}
+                        <td>全网最新</td>
+                        {{/if}}
+
+                    </tr>
+                    <tr>
+                        <td>星级</td>
+                        <td class="star">8.7</td>
+                    </tr>
+                    <tr>
+                        <td>评论数量</td>
+                        <td>{{comemntNum}}</td>
+                    </tr>
+                    <tr>
+                        {{#if (movie.playnum)}}
+                        <td>播放数量</td>
+                        <td>{{movie.playnum}}</td>
+                        {{else}}
+                        <td>视频来源</td>
+                        <td>用户搜索</td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        {{#if (movie.info)}}
+                        <td>影片介绍</td>
+                        <td>{{movie.info}}</td>
+                        {{else}}
+                        <td>站长提示</td>
+                        <td>找不到的VIP视频就试试网站的搜索功能呗</td>
+                        {{/if}}
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="select-index">
+                    {{# if(movie.type === '电视剧')}}
+                    <a href="#" class="select-last">上一集</a>
+                    <select id="select-num" class="select">
+                        <option value="01">第01集</option>
+                        <option value="02">第02集</option>
+                        <option value="03">第03集</option>
+                        <option value="04">第04集</option>
+                        <option value="05">第05集</option>
+                        <option value="06">第06集</option>
+                        <option value="07">第07集</option>
+                        <option value="08">第08集</option>
+                        <option value="09">第09集</option>
+                    </select>
+                    <a href="#" class="select-next">下一集</a>
+                    {{else}}
+                    <a href="#" class="select-movie-last toggleMovie">随便看看</a>
+                    <!--<a href="#" class="select-movie-next toggleMovie">下一个</a>-->
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="play-other">
+            <div class="play-other-l">
+                <span class="movie-name">{{movie.title}} </span>
+                {{#if (movie.type !== '电影')}}
+                <span class="movie-index">正在播放</span>
+                {{else}}
+                <span class="movie-index">电影</span>
+                {{/if}}
+                <span><i id="usernum" style="font-weight: bold; color: red">0</i>人正在看</span>
+                <span class="movie-score">{{movie.score}}</span>
+            </div>
+            <div href="#" class="open-comment">
+                <div class="danmu-group" id="danmu-group">
+                    <span id="danmu" class="danmu-text">弹幕</span>
+                    <span class="danmu" id="status" ></span>
+                </div>
+                <div class="danmu-form">
+                    {{#if (!user)}}
+                    <input type="text" placeholder="登录一起吐槽吧" value="" maxlength="20">
+                    <button type="" id="loginButton" onclick="window.location.href='/login'">登录</button>
+                    {{else}}
+                    <input type="text" placeholder="我也来说几句" maxlength="20" id="content" value="">
+                    <button type="" id="commitButton">发表</button>
+                    {{/if}}
+                </div>
+
+            </div>
+            <div class="play-other-r">
+                <span class="play-other-toast">亲，这里可以切换接口加速啊！</span>
+                <select class="select-interface" id="select-interface">
+                    <option value="01">接口1</option>
+                    <option value="02">接口2</option>
+                    <option value="03">接口3</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--play end-->
+
+
+<!--comment start-->
+<div class="comment clearfix">
+    <div class="w">
+        <!--评论登录的提示信息-->
+        <div class="comment-login">
+            {{#if (!user)}}
+            <div class="comment-top">
+                <span>请先<a href="/login">登录</a>，才可以参与评论！</span>
+            </div>
+            {{else}}
+            <div class="comment-top">
+                <span>我也来说几句</span>
+            </div>
+            <div class="comment-bottom">
+                <form action="/play" method="post" id="comment-form">
+                    <span class="comment-bottom-title">内容</span>
+                    <textarea class="comment-text" name="content" id="comment-text" cols="30" rows="10">我爱科技论坛VIP视频电影免费看啦！</textarea>
+                </form>
+                <a href="#" class="commit-comment" id="commit-comment">提交评论</a>
+                {{#if (isCollectMovie)}}
+                <a href="#" class="collect-comment" id="cancel-movie">取消收藏</a>
+                {{else}}
+                <a href="#" class="collect-comment" id="collect-movie">收藏电影</a>
+                {{/if}}
+            </div>
+            {{/if}}
+
+        </div>
+
+
+        <!--电影评论的内容信息-->
+        <div class="comment-con">
+            <span class="title">电影评论</span>
+            <div class="con clearfix" id="comments">
+                {{#if (comments)}}
+                {{#each (comments)}}
+                <div class="comment-content">
+                    <div class="userlogo">
+                        <img src="{{this.face}}" alt="">
+                    </div>
+                    <div class="usercontent">
+                        <div class="usercontent-title">
+                            <a href="/login">{{this.uname}}</a><span>评论于 {{this.addtime}}</span>
+                        </div>
+                        <div class="usercontent-con">
+                            {{this.content}}
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+
+
+            <!--评论分页-->
+            <div class="comments-page">
+                <div class="w">
+                    <ul id="comments-page">
+                        <li><a class="page-btn" href="#" id="firstPage">首页</a></li>
+                        <li><a class="page-btn" href="#" id="lastPage">上一页</a></li>
+                        <li><a class="page-btn" href="#"><i id="pageNow">1</i>&nbsp;/&nbsp;<i
+                                id="pageNum">{{pageNum}}</i></a></li>
+                        <li><a class="page-btn" href="#" id="nextPage">下一页</a></li>
+                        <li><a class="page-btn" href="#" id="endPage">尾页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--comment start-->
+{{/block}}
+
+{{#block ("foot")}}
+<script>
+    ;(function () {
+        window.onload = function () {
+            // 建立socket
+            var socket = io.connect('http://www.52tech.tech:65500');
+            socket.emit('foo', 'login');//发送一个名为foo的事件，并且传递一个字符串数据‘hello’.
+            onSocketEvent(socket);
+
+            // 1. 获取弹幕按钮的状态
+            addEvent();
+
+            // 2. 开启在线聊天室（弹幕功能）
+            init(socket);
+
+
+            // 3. 等待20s之后，自动开启弹幕功能
+            setTimeout(function () {
+                $('#status').css('backgroundColor', 'red');
+                $('#video-top').show();
+                // 通过控制透明度来设置显示状态（不透明）
+                $('#video-top').css('opacity', '1');
+                // 开启之后，先清空弹幕
+                $('#video-top').html('');
+            }, 20000)
+
+            // 定义一个定时器，每隔5min清空一次
+        }
+
+        // 开通在线交流功能
+        // 参数初始化
+        function init(socket) {
+            $('#danmu-group').on('click', function (e) {
+                $.preventDefault(e);
+                if ($('#status').hasClass('danmu-open')) {
+                    $('#status').removeClass('danmu-open');
+                    // 设置弹幕层的显示状态（完全透明）
+                    $('#video-top').css('opacity', '0');
+                    $('#status').css('backgroundColor', '');
+                    $('#video-top').html('');
+                } else {
+                    $('#status').addClass('danmu-open');
+                    $('#video-top').show();
+                    // 通过控制透明度来设置显示状态（不透明）
+                    $('#video-top').css('opacity', '1');
+                }
+            });
+
+            // 注册事件
+            $('#commitButton').on('click', function () {
+                var content = $('#content').val();
+                if (!content || content === '') {
+                    return;
+                }
+                // 如果用户点击了按钮的话
+                if ($('#status').css('backgroundColor') === 'rgb(255, 0, 0)') {
+                    $('#content').val('');
+                    socket.emit('publish', content);
+                } else {
+                    return;
+                }
+
+            });
+
+            // 注册socket事件
+            onSocketEvent(socket)
+        }
+
+        // 生成16进制的随机颜色
+        function randomColor() {
+            var color = '',
+                colors = [0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"],
+                i = 0;
+            for (; i < 6; i++){
+                var n = Math.ceil(Math.random() * 15);
+                color += '' + colors[n];
+                if (i === 5) {
+                    return '#' + color;
+                }
+            }
+        }
+
+        // 移动弹幕
+        function moveSpan(content, socket) {
+            var id = 'con'+ (+new Date());
+            var top = Math.floor(Math.random() * 400) + 'px';
+            var color = randomColor();
+            var spanStr = '<span class="video-comment" id="'+id+'" style="top:'+top+'; font-size: 18px; color: '+color+'; right: -50px;">'+content+'</span>';
+
+            // 1. 显示内容到屏幕
+            var html = $('#video-top').html().trim();
+            $('#video-top').html(html + spanStr);
+
+            // 2. 向左移动
+            $.animate('#'+id, {'left' : '-1500px'}, 15000, 'linear')
+
+            // 3. 键盘事件
+            document.onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode==13){ // enter 键
+                    //要做的事情
+                    var content = $('#content').val();
+                    if (!content || content === '') {
+                        return;
+                    }
+                    // 如果用户点击了按钮的话
+                    if ($('#status').css('backgroundColor') === 'rgb(255, 0, 0)') {
+                        $('#content').val('');
+                        socket.emit('publish', content);
+                    } else {
+                        return;
+                    }
+                }
+
+            };
+        }
+
+        // 连接服务器
+        var nums = 0;
+        function onSocketEvent(socket) {
+            // 向所有的用户发送消息
+            socket.on('system', function (tag, content) {
+                // 每次进来之前先把里面的那一个位置归位
+                switch (tag) {
+                    case 'num':
+                        $('#usernum').html(content);
+                        break;
+                }
+            });
+
+            // message
+            socket.on('message', function (con) {
+                // 如果当前界面中还有正在运动的元素， 就直接退出
+                if (nums === 1){
+                    nums = 0;
+                    return;
+                }
+                //console.log(nums);
+                moveSpan(con, socket);
+                nums++;
+            });
+
+            // 登录成功
+            socket.on('loginsuccess', function (con) {
+                $('#usernum').html(con);
+                $('#usernummovie').html(con);
+            });
+        }
+
+        // 注册事件
+        function addEvent() {
+            // 用户提交评论后的逻辑处理
+            $('#commit-comment').on('click', function (e) {
+                var form = $('#comment-form').get(0);
+                var content = $('#comment-text').html();
+                var url = form.action;
+                var locationUrl = window.location.href;
+                var method = form.method;
+                if ($.isString(content)) {
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        dataType: 'json',
+                        data: $.serialize('comment-form'),
+                        success: function (data) {
+                            if (data && data.code === 1) {
+                                // 开始进行页面跳转处理(刷新当前的页面信息)
+                                setTimeout(function () {
+                                    window.location.href = locationUrl;
+                                    $('#comment-text').html('');
+                                }, 1000);
+                            }
+                        }
+                    });
+                }
+            });
+
+            // 实现评论数据的分页查询
+            $('#comments-page li').on('click', function (e) {
+                $.preventDefault(e);
+                var target = $($.getTarget(e)).text(),
+                    currentPage = $('#pageNow').text(),
+                    pageNum = $('#pageNum').text();
+                pageNum = $.isString(pageNum) ? parseInt(pageNum) : pageNum;
+                currentPage = $.isString(currentPage) ? parseInt(currentPage) : currentPage;
+                switch (target) {
+                    case '首页':
+                        currentPage = 1;
+                        break;
+                    case '上一页':
+                        if (currentPage > 1) {
+                            currentPage -= 1;
+                        }
+                        break;
+                    case '下一页':
+                        if (currentPage < pageNum) {
+                            currentPage += 1;
+                        }
+                        break;
+                    case '尾页':
+                        currentPage = pageNum;
+                        break;
+                }
+                $('#pageNow').html(currentPage);
+                $.ajax({
+                    url: '/comment/' + currentPage,
+                    type: 'GET',
+                    dataType: 'json',
+                    data: '',
+                    success: function (data) {
+                        // console.log(data);
+                        if (data && data.code === 1) {
+                            var comments = data.comments,
+                                i = 0,
+                                len = comments.length,
+                                htmlStr = '',
+                                comment;
+                            for (; i < len; i++) {
+                                comment = comments[i];
+                                htmlStr += '<div class="comment-content">\n' +
+                                    '                    <div class="userlogo">\n' +
+                                    '                        <img src="' + comment.face + '" alt="">\n' +
+                                    '                    </div>\n' +
+                                    '                    <div class="usercontent">\n' +
+                                    '                        <div class="usercontent-title">\n' +
+                                    '                            <a href="/login">' + comment.uname + '</a><span>评论于 ' + comment.addtime + '</span>\n' +
+                                    '                        </div>\n' +
+                                    '                        <div class="usercontent-con">\n' +
+                                    '                            ' + comment.content + '\n' +
+                                    '                        </div>\n' +
+                                    '                    </div>\n' +
+                                    '                </div>';
+                            }
+                            $('#comments').html(htmlStr);
+                        }
+                    }
+                });
+
+            });
+
+            // 切换信息
+            $('.toggleMovie').on('click', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/play/current/0',
+                    type: 'GET',
+                    success: function (data) {
+
+                        if (data && data.code === 1) {
+                            var movies = data.movie;
+                            window.location.href = '/play/' + movies[0].url;
+                        }
+                    }
+                })
+            })
+
+            // 切换接口信息
+            $('#select-interface').on('change', function () {
+                var option = $('#select-interface').get(0).options;
+                var index = option.selectedIndex;
+                // 根据下标编号来切换接口
+                var value = option[index].value;
+                var link = window.location.href;
+                link = 'http://www.iqiyi.com/' + link.substr(link.lastIndexOf('/') + 1);
+                if (index > 0) {
+                    if (value === '02') {
+                        document.getElementById("video_iframe").src = 'http://jx.598110.com/index.php?url=' + link;
+                    }
+
+                    if (value === '03') {
+                        document.getElementById("video_iframe").src = 'http://a.2gty.com/apiurl/yun.php?url' + link;
+                    }
+                } else {
+                    // 开始切换接口信息 http://www.82190555.com/video.php?url=
+                    if (value === '01') {
+                        document.getElementById("video_iframe").src = 'http://www.82190555.com/video.php?url=' + link;
+                    }
+                }
+            });
+
+            // 收藏电影的列表
+            $('#collect-movie').on('click', function (e) {
+                e.preventDefault();
+                var href = window.location.href.toString();
+                var url = href.substring(href.lastIndexOf('/') + 1);
+                if ($('#collect-movie').text().trim() === '收藏电影') {
+                    $.ajax({
+                        url: '/play/colmovie/0',
+                        type: 'POST',
+                        data: {
+                            url: url,
+                        },
+                        success: function (data) {
+                            if (data && data.code === 1) {
+                                $('#collect-movie').html('取消收藏');
+                            }
+                        }
+                    })
+                } else if ($('#cancel-movie').text() === '取消收藏') {
+                    $.ajax({
+                        url: '/play/colmovie/1',
+                        type: 'POST',
+                        data: {
+                            url: url,
+                        },
+                        success: function (data) {
+                            if (data && data.code === 1) {
+                                $('#cancel-movie').html('收藏电影');
+                            }
+                        }
+                    })
+                }
+
+            });
+
+            // 取消收藏
+            $('#cancel-movie').on('click', function (e) {
+                e.preventDefault();
+                var href = window.location.href.toString();
+                var url = href.substring(href.lastIndexOf('/') + 1);
+                if ($('#cancel-movie').text().trim() === '取消收藏') {
+                    $.ajax({
+                        url: '/play/colmovie/1',
+                        type: 'POST',
+                        data: {
+                            url: url,
+                        },
+                        success: function (data) {
+                            if (data && data.code === 1) {
+                                $('#cancel-movie').html('收藏电影');
+                            }
+                        }
+                    })
+                } else if ($('#cancel-movie').text().trim() === '收藏电影') {
+                    $.ajax({
+                        url: '/play/colmovie/0',
+                        type: 'POST',
+                        data: {
+                            url: url,
+                        },
+                        success: function (data) {
+                            if (data && data.code === 1) {
+                                $('#cancel-movie').html('取消收藏');
+                            }
+                        }
+                    })
+                }
+            });
+        }
+    })();
+</script>
+<script src="/www/js/socket.io.js"></script>
+{{/block}}
+
+

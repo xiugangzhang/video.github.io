@@ -1,0 +1,126 @@
+{{extend ("./layout")}}
+
+{{#block ("head")}}
+<link rel="stylesheet" href="www/css/others.css">
+{{/block}}
+
+{{#block ("body")}}
+<!--login start-->
+<div class="login w">
+    <div class="login-form">
+        <div class="form-title">
+            会员登录
+        </div>
+        <div class="form-content">
+            <form action="/login" method="post" class="form-group" id="login-form">
+                <label for="uname" id="unamelb">用户名</label>
+                <input type="text" placeholder="用户名/邮箱/手机号码" name="uname" id="uname" autofocus>
+                <label for="pwd" id="pwdlb">密码</label>
+                <input type="password" placeholder="密码" name="pwd" id="pwd">
+                <label for="captcha" id="captchalb">验证码</label>
+                <div class="captcha">
+                    <input type="text" placeholder="验证码" id="captcha" name="vcode">
+                    <!--点击按钮之后切换验证码：为了防止产生图片URL地址缓存，需要请求的URL地址中传递的参数要不断的改变（时间或者随机数），
+                    否则会在浏览器中产生缓存【告诉浏览器我每次都是一个新的请求】-->
+                    <img src="/captcha" alt="" class="captcha-img" onclick="this.src='/captcha?'+new Date()+'';" id="captcha-img">
+                </div>
+                <button type="submit">登录</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--login end-->
+{{/block}}
+
+{{#block ("foot")}}
+<script>
+    window.onload = function () {
+        // 用户登录和退出---------------------------------------------------------------------------------------------------------
+        function checkInputParas(){
+            var uname = $('#uname').val();
+            var pwd = $('#pwd').val();
+            var captcha = $('#captcha').val();
+
+            // 用户名
+            // undefined看作是空的变量，而null看作是空的对象
+            if ((uname == null) || (uname === undefined) || (uname === '')) {//判断用户名是否为空，为空就弹出提示框"请输入用户名"，否则正常执行下面的代码。
+                // $('#uname').get(0).focus();//获取焦点，即：鼠标自动定位到用户名输入框，等待用户输入用户名。
+                $('#unamelb').html('<span style="color: red">用户名不能为空</span>');
+                return false;
+            } else {
+                $('#unamelb').html('用户名');
+            }
+            // 密码
+            if ((pwd == null) || (pwd === undefined) || (pwd === '')) {//判断用户名是否为空，为空就弹出提示框"请输入用户名"，否则正常执行下面的代码。
+                // $('#uname').get(0).focus();//获取焦点，即：鼠标自动定位到用户名输入框，等待用户输入用户名。
+                $('#pwdlb').html('<span style="color: red">密码不能为空</span>');
+                return false;
+            } else {
+                $('#pwdlb').html('密码');
+            }
+            // 验证码
+            if ((captcha == null) || (captcha === undefined) || (captcha === '')) {//如果用户名、密码都正常输入，则提交表单，浏览器经打开新的（主页）窗口。
+                // $('#pwd2').get(0).focus();//获取焦点。
+                $('#captchalb').html('<span style="color: red">验证码不能为空</span>');
+                return false;
+            } else {
+                $('#captchalb').html('验证码');
+            }
+            return true;
+        }
+
+        // 输入框失去焦点之后开始检查
+        $('input').on('blur', function () {
+            //  上面的输入都结束了之后才可以提交请求
+            if (!checkInputParas()){
+                return false;
+            }
+        });
+
+
+        // 用户提交表单的数据请求
+        $('#login-form').on('submit', function (e) {
+            // 这里默认使用这个方法来阻止事件冒泡
+            $.preventDefault(e);
+            if (!checkInputParas()){
+                return false;
+            }
+
+            var url = $(this).attr('action');
+            var method = $(this).attr('method');
+            $('#unamelb').html('用户名');
+            $('#captchalb').html('验证码');
+
+            // 开始发送ajax请求
+            $.ajax({
+                url : url,
+                type : method,
+                data : $.serialize('login-form'),
+                dataType : 'json',
+                success : function (data) {
+                    if (data && data.code === 1) {
+                        window.location.href = '/';
+                    } else {
+                        if (data.code === 1001) {
+                            $('#captchalb').html('<span style="color: red">验证码输入错误</span>');
+                            $('#captcha').val('');
+                            $('#captcha-img').get(0).src = '/captcha?'+new Date()+'';
+
+                        } else {
+                            $('#unamelb').html('<span style="color: red">用户名或密码错误</span>');
+                            $('#uname').val('');
+                            $('#pwd').val('');
+                            $('#captcha').val('');
+                            $('#captcha-img').get(0).src = '/captcha?'+new Date()+'';
+                        }
+                    }
+                },
+                error : function (data) {
+                    console.log(data);
+                }
+            });
+        });
+
+    }
+</script>
+{{/block}}

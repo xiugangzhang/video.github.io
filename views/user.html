@@ -1,0 +1,596 @@
+{{extend ("./layout")}}
+
+{{#block ("head")}}
+<link rel="stylesheet" href="www/css/user.css">
+{{/block}}
+
+{{#block ("body")}}
+<!--useinfo start-->
+<div class="userinfo clearfix">
+    <div class="w">
+        <div class="userinfo-l">
+            <ul id="userinfo">
+                <li class="current">会员中心</li>
+                <li>修改密码</li>
+                <li id="comment-logs">评论记录</li>
+                <li id="login-logs">登录日志</li>
+                <li id="col-movie">收藏电影</li>
+            </ul>
+        </div>
+        <div class="userinfo-r">
+            <div class="user-center">
+                <span class="title">会员中心</span>
+                <div class="user-center-content">
+                    <form action="/user" method="post" id="userino-form">
+                        <label for="username">用户名</label>
+                        <input type="text" placeholder="用户名" name="uname" id="username" autofocus
+                               value="{{user.uname}}" readonly style="color: #5d5d5d; font-weight: bold">
+                        <label for="email" id="emaillb">邮箱</label>
+                        <input type="text" placeholder="邮箱" name="email" id="email" value="{{user.email}}">
+                        <label for="phone" id="phonelb">手机</label>
+                        <input type="text" placeholder="手机" name="phone" id="phone" value="{{user.phone}}">
+                        <label for="logo">图像</label>
+                        <img src="{{user.face}}" alt="" id="logo">
+                        <input type="hidden" name="face" value="{{user.face}}">
+                        <a class="upload" id="upload">上传图像</a>
+                        <label for="desc">简介</label>
+                        <textarea name="info" id="desc" cols="30" rows="10">{{user.info}}</textarea>
+                        <button type="submit">保存修改</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="user-pwd">
+                <span class="title">修改密码</span>
+                <form action="/user" method="post" id="pwd-form">
+                    <label for="pwd1" id="pwd1lb">旧密码</label>
+                    <input type="password" placeholder="旧密码" name="pwd1" id="pwd1">
+                    <label for="pwd2" id="pwd2lb">新密码</label>
+                    <input type="password" placeholder="新密码" name="pwd2" id="pwd2">
+                    <button type="submit">修改密码</button>
+                    <input type="hidden" value="pwd3" name="pwd3">
+                </form>
+            </div>
+            <div class="user-comment">
+                <!--电影评论的内容信息-->
+                <div class="comment-con">
+                    <span class="title">评论记录</span>
+                    <div class="con clearfix" id="comments">
+                        {{#if (comments)}}
+                        {{#each(comments)}}
+                        <div class="comment-content">
+                            <div class="userlogo">
+                                <img src="{{this.face}}" alt="">
+                            </div>
+                            <div class="usercontent">
+                                <div class="usercontent-title">
+                                    <a href="/user/{{this.id}}">{{this.uname}}</a><span>评论于 {{this.addtime}}</span>
+                                </div>
+                                <div class="usercontent-con">
+                                    {{this.content}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                        {{/if}}
+                    </div>
+
+
+                    <!--评论分页-->
+                    <div class="comments-page">
+                        <div class="w">
+                            <ul id="comments-page">
+                                <li><a class="page-btn" href="#" id="firstPage">首页</a></li>
+                                <li><a class="page-btn" href="#" id="lastPage">上一页</a></li>
+                                <li><a class="page-btn" href="#"><i id="pageNow">1</i>&nbsp;/&nbsp;<i
+                                        id="pageNum">{{pageNum}}</i></a></li>
+                                <li><a class="page-btn" href="#" id="nextPage">下一页</a></li>
+                                <li><a class="page-btn" href="#" id="endPage">尾页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-logininglog">
+                <span class="title">登录日志</span>
+                <table class="table-con">
+                    <tbody id="userlogs-con">
+                    </tbody>
+                </table>
+            </div>
+            <div class="user-moviecol clearfix">
+                <span class="title">收藏电影</span>
+                <div id="user-colmovie" class="user-colmovie">
+                    {{#if (colmovies)}}
+                    {{#each (colmovies)}}
+                    <div class="moviecol-con">
+                        <div class="moviecol-con-l">
+                        </div>
+                        <div class="moviecol-con-r">
+                            <div class="moviecol-con-title">
+                                <span class="movie-title">
+                                    {{this.title}}
+                                </span>
+                                <a class="movie-play" href="play">
+                                    ▶播放影片
+                                </a>
+                            </div>
+                            <span class="moviecol-con-desc">
+                                    {{this.info}}
+                            </span>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toastWindow clearfix" id="toastWindow">
+    <div class="w">
+        <div class="upload-window">
+            <div class="upload-title">上传图片</div>
+            <div class="upload-line"></div>
+            <div class="upload-info">
+                <span class="upload-file-title" id="upload-file-title">请选择要上传的图片（大小限制：100*100）</span>
+                <form action="" class="upload-form" id="upload-form">
+                    <input type="file" class="upload-file" id="upload-file">
+                    <div class="upload-line"></div>
+                    <button class="upload-cancel">取消</button>
+                    <button class="upload-ok">点击上传</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--useinfo end-->
+{{/block}}
+
+{{#block ("foot")}}
+<script>
+    window.onload = function () {
+        // 切换用户中心按钮
+        toggleUserButton();
+    }
+    // 注册事件监听
+    addEvent();
+
+    //用户中心切换按钮------------------------------------------------------------------------------
+    function toggleUserButton() {
+        $('#userinfo li').on('click', function (e) {
+            var target = $($.getTarget(e));
+            var text = target.text();
+            $('#userinfo li').each(function () {
+                $(this).css('backgroundColor', '');
+                $(this).css('color', 'black');
+            });
+            target.css('color', 'white');
+            target.css('backgroundColor', '#E91E63');
+            switch (text.toString().trim()) {
+                case '会员中心':
+                    $('.user-center').show();
+                    $('.user-pwd').hide();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').hide();
+                    break;
+                case '修改密码':
+                    $('.user-center').hide();
+                    $('.user-pwd').show();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').hide();
+                    break;
+                case '评论记录':
+                    $('.user-center').hide();
+                    $('.user-pwd').hide();
+                    $('.user-comment').show();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').hide();
+                    break;
+                case '登录日志':
+                    $('.user-center').hide();
+                    $('.user-pwd').hide();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').show();
+                    $('.user-moviecol').hide();
+
+                    break;
+                case '收藏电影':
+                    $('.user-center').hide();
+                    $('.user-pwd').hide();
+                    $('.user-comment').hide();
+                    $('.user-logininglog').hide();
+                    $('.user-moviecol').show();
+                    break;
+            }
+        });
+    }
+
+    // 会员中心-----------------------------------------------------------------------------------
+    function checkInputParas() {
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+
+        // 邮箱
+        if ((email == null) || (email === undefined) || (email === '')) {
+            // $('#email').get(0).focus();
+            $('#emaillb').html('<span style="color: red">邮箱不能为空</span>');
+            $('#email').get(0).focus();
+            return false;
+        } else {
+            if ($.isString(email) && !email.match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/g)) {
+                $('#emaillb').html('<span style="color: red">邮箱格式错误</span>');
+                $('#email').get(0).focus();
+                return false;
+            } else {
+                $('#emaillb').html('邮箱');
+            }
+        }
+
+        // 手机
+        if ((phone == null) || (phone === undefined) || (phone === '')) {
+            // $('#phone').get(0).focus();
+            $('#phonelb').html('<span style="color: red">手机不能为空</span>');
+            $('#phone').get(0).focus();
+            return false;
+        }
+        else {
+            if ($.isString(phone) && !phone.match(/(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/)) {
+                $('#phonelb').html('<span style="color: red">手机格式有误</span>');
+                $('#phone').get(0).focus();
+                return false;
+            } else {
+                $('#phonelb').html('手机');
+            }
+        }
+        return true;
+    }
+
+    // 添加事件
+    function addEvent() {
+        // 输入框失去焦点之后触发事件
+        $('input').on('blur', function (e) {
+            $('#emaillb').html('邮箱');
+            $('#phonelb').html('手机');
+            // var target = $.getTarget(e).placeholder;
+            // 开始进行参数校验
+            if (!checkInputParas()) {
+                return false;
+            }
+        })
+        // 提交数据
+        $('#userino-form').on('submit', function (e) {
+            $.preventDefault(e);
+            if (!checkInputParas()) {
+                return false;
+            }
+            $.ajax({
+                url: '/user',
+                type: 'POST',
+                dataType: 'json',
+                data: $.serialize('userino-form'),
+                success: function (data) {
+                    window.location.href = '/login';
+                }
+            });
+        });
+
+        // 文件上传
+        $('#upload-form button').on('click', function (e) {
+            $.preventDefault(e);
+            var target = $($.getTarget(e)).text();
+            $('#upload-file-title').html('请选择要上传的图片');
+            switch (target) {
+                case '取消':
+                    $('#toastWindow').hide();
+                    break;
+                case '点击上传':
+                    // 表单数据提交(构建一个表单数据对象)
+                    var formData = new FormData();
+                    // 给表单里面附加一个数据（沟间一个逼单数据，键值对）， 获取到的实际上是文件的二进制数据
+                    var file = document.querySelector('#upload-file').files[0];
+
+                    formData.append('pic', file);
+                    if (!formData || !file) {
+                        $('#upload-file-title').html('<span style="color: red">请至少选择一个要上传的文件</span>');
+                        return;
+                    }
+                    var fileType = file.type;
+                    ;
+                    var typeArr = ["image/jpg", "image/jpeg", "image/png", "image/pjpeg", "image/gif", "image/bmp", "image/x-png"];
+                    if (!typeArr.contains(fileType)) {
+                        $('#upload-file-title').html('<span style="color: red">不支持的文件格式</span>');
+                        return;
+                    }
+
+                    // 1. 创建一个xhr对象
+                    var xhr = new XMLHttpRequest();
+                    // 2. 配置请求
+                    xhr.open('POST', '/user/upload');
+                    // 3. 开始进行事件监听
+                    xhr.onreadystatechange = function (e) {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            // console.log(data);
+                            if (data && data.code === 1) {
+                                var src = data.msg;
+                                // 关闭窗口改变用户图像
+                                $('#toastWindow').hide();
+                                // 本地修改，数据库修改
+                                $('#logo').attr('src', src);
+                                window.location.href = '/';
+                            }
+                        }
+                    }
+                    // 4. 开始进行数据发送
+                    xhr.send(formData);
+                    break;
+            }
+        });
+        // 正式上传文件
+        $('#upload').on('click', function (e) {
+            $.preventDefault(e);
+            $('#toastWindow').show();
+        });
+
+
+        // 修改密码-----------------------------------------------------------------------------------
+        $('#pwd-form').on('submit', function (e) {
+            $.preventDefault(e);
+            var pwd1 = $('#pwd1').val();
+            var pwd2 = $('#pwd2').val();
+            if ((pwd1 == null) || (pwd1 === undefined) || (pwd1 === '')) {//判断密码是否为空，为空就弹出提示框"请输入密码"，否则正常执行下面的代码。
+                // $('#pwd1').get(0).focus();//获取焦点。
+                $('#pwd1lb').html('');
+                $('#pwd1lb').html('<span style="color: red">密码不能为空</span>');
+                return;
+            } else {
+                if ($.isString(pwd1) && pwd1.length < 5) {
+                    $('#pwd1lb').html('');
+                    $('#pwd1lb').html('<span style="color: red">原始密码错误</span>');
+                    $('#pwd1').val('');
+                    $('#pwd2').val('');
+                    return;
+                } else {
+                    $('#pwd1lb').html('旧密码');
+                }
+            }
+            if ((pwd2 == null) || (pwd2 === undefined) || (pwd2 === '')) {//如果用户名、密码都正常输入，则提交表单，浏览器经打开新的（主页）窗口。
+                // $('#pwd2').get(0).focus();//获取焦点。
+                $('#pwd2lb').html('');
+                $('#pwd2lb').html('<span style="color: red">确认密码不能为空</span>');
+                return;
+            } else {
+                if ($.isString(pwd2) && pwd2 === pwd1) {
+                    $('#pwd2lb').html('');
+                    $('#pwd2lb').html('<span style="color: red">新密码不能和旧密码相同</span>');
+                    return;
+                } else {
+                    if ($.isString(pwd2) && pwd2.length < 5) {
+                        $('#pwd2lb').html('<span style="color: red">新密码长度不能低于5位</span>');
+                        return;
+                    }
+                    // 大于5个字符的话就去数据库中验证数据
+                    $.ajax({
+                        url: '/user',
+                        type: 'POST',
+                        data: $.serialize('pwd-form'),
+                        success: function (data) {
+                            console.log(data);
+                            if (data && data.code === 0) {
+                                $('#pwd1lb').html('<span style="color: red">原始密码错误</span>');
+                                $('#pwd1').val('');
+                                $('#pwd2').val('');
+                                return;
+                            } else {
+                                // 开始进行表单数据提交
+                                $.ajax({
+                                    url: '/user',
+                                    type: 'POST',
+                                    data: $.serialize('pwd-form'),
+                                    dataType: 'string',
+                                    success: function (data) {
+                                        if (data) {
+                                            window.location.href = '/login';
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    })
+                    $('#pwd2lb').html('新密码');
+                }
+            }
+        });
+
+        // 评论记录-------------------------------------------------------------------------------------
+        $('#comment-logs').on('click', function (e) {
+            $('#pageNum').text().trim() === '' ? $('#pageNum').text('1') : $('#pageNum').text().trim();
+            $.ajax({
+                url: '/comment/' + 1,
+                type: 'GET',
+                success: function (data) {
+                    if (data && data.code === 1) {
+                        var htmlStr = getCommentsStr(data.comments);
+                        if (!htmlStr || htmlStr == '') {
+                            return;
+                        }
+                        // console.log(htmlStr);
+                        $('#comments').html(htmlStr);
+                        $('#pageNum').text(data.pageNum);
+                    }
+                }
+            });
+        });
+
+        // 实现评论数据的分页查询
+        $('#comments-page li').on('click', function (e) {
+            $.preventDefault(e);
+            var target = $($.getTarget(e)).text(),
+                currentPage = $('#pageNow').text(),
+                pageNum = $('#pageNum').text();
+            pageNum = $.isString(pageNum) ? parseInt(pageNum) : pageNum;
+            currentPage = $.isString(currentPage) ? parseInt(currentPage) : currentPage;
+            switch (target) {
+                case '首页':
+                    currentPage = 1;
+                    break;
+                case '上一页':
+                    if (currentPage > 1) {
+                        currentPage -= 1;
+                    }
+                    break;
+                case '下一页':
+                    if (currentPage < pageNum) {
+                        currentPage += 1;
+                    }
+                    break;
+                case '尾页':
+                    currentPage = pageNum;
+                    break;
+            }
+            $('#pageNow').html(currentPage);
+            $.ajax({
+                url: '/comment/' + currentPage,
+                type: 'GET',
+                dataType: 'json',
+                data: '',
+                success: function (data) {
+                    // console.log(data);
+                    if (data && data.code === 1) {
+                        var htmlStr = getCommentsStr(data.comments);
+                        $('#comments').html(htmlStr);
+                    }
+                }
+            });
+
+        });
+
+        // 登录日志----------------------------------------------------------------------------------------
+        $('#login-logs').on('click', function (e) {
+            $.ajax({
+                url: '/userlog',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    data: 'logs'
+                },
+                success: function (data) {
+                    if (data && data.code === 1) {
+                        var userlogs = data.userlogs,
+                            i = 0,
+                            len = userlogs.length,
+                            userlog;
+                        var htmlStr = '<tr>\n' +
+                            '                        <td>编号</td>\n' +
+                            '                        <td>登录时间</td>\n' +
+                            '                        <td>登录IP</td>\n' +
+                            '                        <td>登录地址</td>\n' +
+                            '                    </tr>';
+                        for (; i < len; i++) {
+                            userlog = userlogs[i];
+                            if (i %2 === 0) {
+                                // 开始渲染
+                                htmlStr += ' <tr class="change">\n' +
+                                    '                    <td>' + (i + 1) + '</td>\n' +
+                                    '                    <td>' + userlog.login_time + '</td>\n' +
+                                    '                    <td>' + userlog.ip + '</td>\n' +
+                                    '                    <td>' + userlog.address + '</td>\n' +
+                                    '                    </tr>';
+                            } else {
+                                // 开始渲染
+                                htmlStr += ' <tr class="change" style="background-color: #ECF6EE;">\n' +
+                                    '                    <td>' + (i + 1) + '</td>\n' +
+                                    '                    <td>' + userlog.login_time + '</td>\n' +
+                                    '                    <td>' + userlog.ip + '</td>\n' +
+                                    '                    <td>' + userlog.address + '</td>\n' +
+                                    '                    </tr>';
+                            }
+
+                        }
+                        $('#userlogs-con').html(htmlStr);
+                    }
+                    // console.log(data);
+                }
+            })
+        });
+
+        // 收藏电影---------------------------------------------------------------------------------------
+        $('#col-movie').on('click', function (e) {
+            $.ajax({
+                url: '/colmovie/1',
+                data: {
+                    tag: 'comment'
+                },
+                dataType: 'json',
+                type: 'POST',
+                success: function (data) {
+                    if (data && data.code === 1) {
+                        // 开始渲染
+                        var htmlStr = '';
+                        var movies = data.msg;
+                        if (!movies.length) {
+                            return;
+                        }
+                        movies.forEach(function (element) {
+                            // console.log(element.url);
+                            htmlStr += ' <div class="moviecol-con">\n' +
+                                '                        <div class="moviecol-con-l" onclick="window.open(' + "'" + element.url + "'" + ')">\n' +
+                                '                        </div>\n' +
+                                '                        <div class="moviecol-con-r">\n' +
+                                '                        <div class="moviecol-con-title">\n' +
+                                '                        <span class="movie-title">\n' +
+                                '                        ' + element.title + '\n' +
+                                '                </span>\n' +
+                                '                    <a class="movie-play" href="'+element.url+'">\n' +
+                                '                                    ▶播放影片\n' +
+                                '                    </a>\n' +
+                                '                    </div>\n' +
+                                '                    <span class="moviecol-con-desc">\n' +
+                                '                        ' + element.info + '\n' +
+                                '                </span>\n' +
+                                '                    </div>\n' +
+                                '                    </div>'
+                        });
+                        $('#user-colmovie').html(htmlStr);
+
+                    }
+                }
+            });
+        });
+
+
+    }
+
+    // 根据评论内容获取字符串
+    function getCommentsStr(comments) {
+        var i = 0,
+            len = comments.length,
+            htmlStr = '',
+            comment;
+        for (; i < len; i++) {
+            comment = comments[i];
+            if (comment === null) {
+                continue;
+            }
+            htmlStr += '<div class="comment-content">\n' +
+                '                    <div class="userlogo">\n' +
+                '                        <img src="' + comment.face + '" alt="">\n' +
+                '                    </div>\n' +
+                '                    <div class="usercontent">\n' +
+                '                        <div class="usercontent-title">\n' +
+                '                            <a href="/user/{{this.id}}">' + comment.uname + '</a><span>评论于 ' + comment.addtime + '</span>\n' +
+                '                        </div>\n' +
+                '                        <div class="usercontent-con">\n' +
+                '                            ' + comment.content + '\n' +
+                '                        </div>\n' +
+                '                    </div>\n' +
+                '                </div>';
+        }
+        return htmlStr;
+    }
+</script>
+{{/block}}

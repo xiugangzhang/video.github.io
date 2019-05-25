@@ -1,0 +1,199 @@
+{{extend ("./layout")}}
+
+{{#block ("head")}}
+<link rel="stylesheet" href="www/css/others.css">
+{{/block}}
+
+{{#block ("body")}}
+<!--register start-->
+<div class="register clearfix w">
+    <div class="register-form">
+        <div class="form-title">
+            会员注册
+        </div>
+        <div class="form-content">
+            <form action="/register" method="post" class="form-group" id="register-form">
+                <label for="uname" id="unamelb">用户名</label>
+                <input type="text" placeholder="用户名" name="uname" id="uname" autofocus value="{{uname}}">
+                <label for="email" id="emaillb">邮箱</label>
+                <input type="text" placeholder="邮箱" name="email" id="email">
+                <label for="phone" id="phonelb">手机</label>
+                <input type="text" placeholder="手机" name="phone" id="phone">
+                <label for="pwd1" id="pwd1lb">密码</label>
+                <input type="password" placeholder="密码" name="pwd1" id="pwd1">
+                <label for="pwd2" id="pwd2lb">密码</label>
+                <input type="password" placeholder="确认密码" name="pwd2" id="pwd2">
+                <input type="hidden" name="tag" value="我已经登录过了">
+                <label for="captcha" id="captchalb">验证码</label>
+                <div class="captcha">
+                    <input type="text" placeholder="验证码" id="captcha" name="vcode">
+                    <!--点击按钮之后切换验证码：为了防止产生图片URL地址缓存，需要请求的URL地址中传递的参数要不断的改变（时间或者随机数），
+                    否则会在浏览器中产生缓存【告诉浏览器我每次都是一个新的请求】-->
+                    <img src="/captcha" alt="" class="captcha-img" onclick="this.src='/captcha?'+new Date()+'';" id="captcha-img">
+                </div>
+                <button type="submit">注册</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--register end-->
+{{/block}}
+
+{{#block ("foot")}}
+<script>
+    window.onload = function () {
+        // 注册事件
+        addEvent();
+
+        // 输入框失去焦点之后触发事件--------------------------------------------------------------------------------------
+        function checkInputParas(e){
+            var uname = $('#uname').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var pwd1 = $('#pwd1').val();
+            var pwd2 = $('#pwd2').val();
+            var captcha = $('#captcha').val();
+
+            // 用户名
+            // undefined看作是空的变量，而null看作是空的对象
+            if ((uname == null) || (uname === undefined) || (uname === '')) {//判断用户名是否为空，为空就弹出提示框"请输入用户名"，否则正常执行下面的代码。
+                // $('#uname').get(0).focus();//获取焦点，即：鼠标自动定位到用户名输入框，等待用户输入用户名。
+                $('#unamelb').html('<span style="color: red">用户名不能为空</span>');
+                return false;
+            } else {
+                if ($.isString(uname) && (uname.length < 4 || uname.length > 12)) {
+                    $('#unamelb').html('<span style="color: red">用户名为4到12位有效字符</span>');
+                    return false;
+                } else {
+                    $('#unamelb').html('用户名');
+                }
+            }
+
+            // 邮箱
+            if ((email == null) || (email === undefined) || (email === '')) {
+                // $('#email').get(0).focus();
+                $('#emaillb').html('<span style="color: red">邮箱不能为空</span>');
+                return false;
+            } else {
+                if ($.isString(email) && !email.match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/g)) {
+                    $('#emaillb').html('<span style="color: red">邮箱格式错误</span>');
+                    return false;
+                } else {
+                    $('#emaillb').html('邮箱');
+                }
+            }
+
+            // 电话号码
+            if ((phone == null) || (phone === undefined) || (phone === '')) {
+                // $('#phone').get(0).focus();
+                $('#phonelb').html('<span style="color: red">手机不能为空</span>');
+                return false;
+            }
+            else {
+                if ($.isString(phone) && !phone.match(/(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/)) {
+                    $('#phonelb').html('<span style="color: red">手机格式有误</span>');
+                    return false;
+                } else {
+                    $('#phonelb').html('手机');
+                }
+            }
+
+
+            // 密码
+            if ((pwd1 == null) || (pwd1 === undefined) || (pwd1 === '')) {//判断密码是否为空，为空就弹出提示框"请输入密码"，否则正常执行下面的代码。
+                // $('#pwd1').get(0).focus();//获取焦点。
+                $('#pwd1lb').html('<span style="color: red">密码不能为空</span>');
+                return false;
+            } else {
+                if ($.isString(pwd1) && pwd1.length < 5) {
+                    $('#pwd1lb').html('<span style="color: red">密码强度不能少于5个字符</span>');
+                    return false;
+                } else {
+                    $('#pwd1lb').html('密码');
+                }
+            }
+
+
+            // 确认密码
+            if ((pwd2 == null) || (pwd2 === undefined) || (pwd2 === '')) {//如果用户名、密码都正常输入，则提交表单，浏览器经打开新的（主页）窗口。
+                // $('#pwd2').get(0).focus();//获取焦点。
+                $('#pwd2lb').html('<span style="color: red">确认密码不能为空</span>');
+                return false;
+            } else {
+                if ($.isString(pwd2) && pwd2 !== pwd1) {
+                    $('#pwd2lb').html('<span style="color: red">确认密码不一致</span>');
+                    return false;
+                } else {
+                    $('#pwd2lb').html('确认密码');
+                }
+            }
+
+            // 验证码
+            if ((captcha == null) || (captcha === undefined) || (captcha === '')) {//如果用户名、密码都正常输入，则提交表单，浏览器经打开新的（主页）窗口。
+                // $('#pwd2').get(0).focus();//获取焦点。
+                $('#captchalb').html('<span style="color: red">验证码不能为空</span>');
+                return false;
+            } else {
+                $('#captchalb').html('验证码');
+            }
+            return true;
+        }
+
+        // 事件的注册
+        function addEvent(){
+            // 输入框失去焦点之后开始检查
+            $('input').on('blur', function () {
+                //  上面的输入都结束了之后才可以提交请求
+                if (!checkInputParas()){
+                    return false;
+                }
+            });
+
+
+            // 表单请求使用ajax 提交(不让表单同步提交，因为同步的话会直接刷新页面，用户体验不好)
+            $('#register-form').on('submit', function (e) {
+                // 阻止事件的默认行为
+                $.preventDefault(e);
+                if (!checkInputParas()) {
+                    return false;
+                }
+                // 开始发送请求
+                var url = $(this).attr('action');
+                var method = $(this).attr('method');
+                $.ajax({
+                    url: url,
+                    type: method,
+                    // 表单序列化
+                    data: $.serialize('register-form'),
+                    // 指定服务器返回的数据类型，可以直接把服务器返回的数据解析为json对象
+                    dataType: 'json',
+                    success: function (data) {
+                        // 如果不指定的话
+                        if (data && data.code === 1) {
+                            // 注册成功，跳转到首页
+                            window.location.href = '/';
+                            // 开始正式提交数据
+                            alert('恭喜你注册成功！');
+                        } else {
+                            if (data && data.code === 1001) {
+                                $('#captchalb').html('<span style="color: red">验证码输入错误</span>');
+                                $('#captcha-img').get(0).src = '/captcha?'+new Date()+'';;
+                                $('#captcha').val('');
+                            } else if (data && data.code === 1002){
+                                $('#unamelb').html('<span style="color: red">用户名已存在</span>');
+                                $('#uname').get(0).focus();
+                            }else {
+                                // 在用户界面上进行处理判断（通过返回的状态码进行处理判断）
+                                alert(JSON.stringify(data));
+                            }
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            });
+        }
+    }
+</script>
+{{/block}}

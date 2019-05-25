@@ -12,5 +12,9 @@ module.exports = {
     movieurl : 'http://vip.iqiyi.com/hot.html?cid=1',                       // 电影地址，
     parseUrl : 'http://www.82190555.com/video.php?url=',
     movielist : [] ,                                                         // 存储了用户获取的电影列表信息
-    userlist : 0
+    userlist : 0,
+    host : 'localhost',
+    database : 'video',
+    user : 'root',
+    password : '123456'
 }

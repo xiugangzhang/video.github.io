@@ -4,17 +4,17 @@ const mysql = require('mysql');
 const fs = require('fs');
 const path = require('path');
 let propertis = getProperties();
-
+const _config = require('../config');
 
 
 
 // 数据库配置
 let config = {
     connectionLimit : 500,
-    host : 'localhost',
-    database : 'video',
-    user : 'root',
-    password : '123456'
+    host : _config.host,
+    database : _config.database,
+    user : _config.user,
+    password : _config.password
 };
 
 // 创建一个数据库连接池
@@ -45,18 +45,18 @@ exports.query = function (sql, p, c) {
         throw new Error('Sorry, 参数个数不匹配或参数类型错误！');
     }
 
+    // 检测数据库参数信息
     if(propertis.database === undefined || propertis.user === undefined || propertis.password === undefined || propertis.host === undefined){
         propertis = getProperties();
-        config = {
-            connectionLimit : 50,
-            host : propertis['host'],
-            database : propertis['database'],
-            user : propertis['user'],
-            password : propertis['password']
-        };
-        pool = mysql.createPool(config)
     }
-
+    config = {
+        connectionLimit : 50,
+        host : propertis['host'] || _config.host,
+        database : propertis['database'] || _config.database,
+        user : propertis['user'] || _config.user,
+        password : propertis['password'] || _config.password
+    };
+    pool = mysql.createPool(config);
     // 从数据库连接池中取出可以使用的链接
     pool.getConnection(function (err, connection) {
         connection.query(sql, params, function (err, rows) {
