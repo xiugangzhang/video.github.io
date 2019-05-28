@@ -4,17 +4,17 @@ const mysql = require('mysql');
 const fs = require('fs');
 const path = require('path');
 let propertis = getProperties();
-
+const _config = require('../config');
 
 
 
 // 数据库配置
 let config = {
     connectionLimit : 500,
-    host : 'localhost',
-    database : 'video',
-    user : 'root',
-    password : '123456'
+    host : _config.host,
+    database : _config.database,
+    user : _config.user,
+    password : _config.password
 };
 
 // 创建一个数据库连接池

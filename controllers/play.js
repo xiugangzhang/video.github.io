@@ -5,6 +5,7 @@ const moment = require('moment');
 moment.locale('zh-cn');
 const Movie = require('../models/movie');
 const MovieCol = require('../models/moviecol');
+const xss = require('xss');
 
 /**
  * 电影播放页面
@@ -17,6 +18,7 @@ exports.showPlay = function (req, res, next) {
     let url = req.params.url;
     // v_19rr7pi4k4.html
     url = 'http://www.iqiyi.com/' + url;
+    let tempUrl = url;
     let parseUrl = req.app.locals.config.parseUrl;
     let playUrl = parseUrl + url;
 
@@ -92,8 +94,12 @@ exports.showPlay = function (req, res, next) {
                     let isCollectMovie = false;
                     if (req.session.user) {
                         let uid = req.session.user.id;
+                        let parmas = {
+                          uid : uid,
+                          url : tempUrl
+                        };
                         // 获取电影收藏的详细信息
-                        MovieCol.getMovieColByUserId(uid, function (err, result) {
+                        MovieCol.getMovieColByUserId(parmas, function (err, result) {
                             if (err) {
                                 return next(err);
                             }
@@ -147,7 +153,15 @@ exports.doPlay = function (req, res, next) {
     // 用户的ID编号
     let user_id = req.session.user.id;
 
-    //console.log(content, addtime, user_id);
+    content = xss(content) + '';
+    content = content.trim();
+    if (content.length == 0) {
+        return res.json({
+            code : -1,
+            msg : '参数解析失败'
+        });
+    }
+
     //console.log('当前的用户ID是：' + user_id);
     // 2. 基本的数据校验
     // 3. 开始进行业务逻辑处理

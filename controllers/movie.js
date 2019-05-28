@@ -10,6 +10,7 @@ const fs = require('fs');
 const data = require('../data/index');
 const TV = require('../models/tv');
 const Comment = require('../models/comment');
+const Preview = require('../models/preview');
 
 
 /**
@@ -416,4 +417,28 @@ exports.doSearchMovieOnline = function (req, res, next) {
 }
 
 
-
+/**
+ * 获取今日热点电影数据
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.getTodayHotMovies = function (req, res, next) {
+    // 开始获取Previews数据
+    // 开始随机获取六个电影
+    Movie.getRandomMovies(6, function (err, result) {
+        if (err) {
+            return next(err);
+        }
+        if (result.length) {
+            result.forEach(movie => {
+                let url = movie.url + '';
+                movie.url = url.substring(url.lastIndexOf('/') + 1)
+            });
+        }
+        return res.json({
+            code : 1,
+            movies : result
+        });
+    })
+}

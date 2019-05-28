@@ -9,12 +9,14 @@ const minifyCss = require('gulp-minify-css'); // 压缩css工具
 const del = require('del');
 const htmlmin = require('gulp-htmlmin');
 const gulpSequence = require('gulp-sequence');
+const babel = require('gulp-babel');            // babel语法转换
+const babelenv = require('babel-preset-env');
 
 
 /* 每次构建之前先删除之前的进行清理 */
 gulp.task('clean', function () {
     return del([
-        //'dist/**/*',
+        'dist/**/*',
         'rev*',
         'compress',
         '*.html',
@@ -23,6 +25,42 @@ gulp.task('clean', function () {
     });
 });
 
+// 拷贝任务
+gulp.task('copy', function () {
+    // 拷贝视图文件(angular.js)
+    gulp.src([
+        './www/html/*.html',
+        './static/**/*',
+        './controllers/*',
+        './data/*',
+        './models/*',
+        './utils/*',
+        './app.js',
+        './config.js',
+        './router.js',
+        './www/images/userlogo.gif',
+        './www/images/movie.svg',
+        './www/uploads/avatar/*',
+        './www/uploads/movie/*',
+        './www/js/movielist/**/*',
+        './gulpfile.js',
+        './package.json',
+        './*.sql'
+    ], {base: './'})
+        .pipe(gulp.dest('./dist'));
+});
+
+
+// 编译
+gulp.task('compile', function(){
+    // 转换为babel通用语法
+    return gulp.src(['./www/js/*'])
+        .pipe(babel({
+            presets: [babelenv]
+        }))
+        // .pipe(uglify())
+        .pipe(gulp.dest('./compile'));
+});
 
 // compress 任务
 gulp.task('compress', function () {
@@ -40,9 +78,9 @@ gulp.task('compress', function () {
 
 
     // 压缩html(xtpl文件夹下面都是么有压缩的，全部拷贝)
-    gulp.src('xtpl/*.xtpl')
+    gulp.src('./views/*.html')
         .pipe(htmlmin(options))
-        .pipe(gulp.dest('./dist/xtpl'));
+        .pipe(gulp.dest('./dist/views'));
 
 
     // 压缩css
@@ -51,27 +89,14 @@ gulp.task('compress', function () {
         .pipe(gulp.dest('./dist'));
 
 
-    // 拷贝视图文件(angular.js)
-    gulp.src([
-        './www/html/*.html',
-        './controllers/*',
-        './data/*',
-        './models/*',
-        './utils/*',
-        './app.js',
-        './config.js',
-        './router.js',
-        './www/images/userlogo.gif',
-        './www/images/movie.svg'
-    ], {base: './'})
-        .pipe(gulp.dest('./dist'));
 
-
-    // 压缩js
-    return gulp.src(['./www/js/*.js', './www/js/**/*.js'], {base: './'})
+    // 开始压缩js
+    return gulp.src(['./compile/*'])
         .pipe(uglify())
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/www/js'));
+
 });
+
 
 
 gulp.task('concat', function () {
@@ -98,7 +123,7 @@ gulp.task('modifyRef', function () {
 //      实现js文件的压缩（不合并）
 // 1. 先进行所有文件的压缩
 // 2. 建立映射文件并执行
-gulp.task('build', gulpSequence('clean', 'compress', 'concat'));
+gulp.task('build', gulpSequence('clean', 'copy', 'compile', 'compress'));
 gulp.task('release', gulpSequence('modifyRef'));
 gulp.task('default', gulpSequence('build', 'release'));
 

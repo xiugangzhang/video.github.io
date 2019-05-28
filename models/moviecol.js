@@ -31,8 +31,8 @@ MovieCol.prototype.save = function (callback) {
  * 获取收藏信息
  * @param callback
  */
-MovieCol.getMovieColByUserId = function (uid, callback) {
-    db.query('select * from colmovie where user_id = ?', [uid], function (err, result) {
+MovieCol.getMovieColByUserId = function (params, callback) {
+    db.query('select * from colmovie where user_id = ? and movie_url = ?', [params.uid, params.url], function (err, result) {
         if (err) {
             return callback(err, null);
         }
@@ -63,7 +63,7 @@ MovieCol.deleteColMovie = function (uid, url, callback) {
  * @param callback
  */
 MovieCol.getColMovieDetails = function(uid, callback){
-    db.query('select movies.title as title, movies.info as info, colmovie.addtime as addtime, movies.url as url from movies , colmovie WHERE movies.url = colmovie.movie_url and colmovie.user_id = ?', [
+    db.query('select movies.title as title, movies.id as id, movies.info as info, colmovie.addtime as addtime, movies.url as url from movies , colmovie WHERE movies.url = colmovie.movie_url and colmovie.user_id = ?', [
         uid
     ], function (err, result) {
         if (err) {

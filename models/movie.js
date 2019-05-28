@@ -172,6 +172,21 @@ Movie.getOneRandomMovie = function(callback){
     })
 }
 
+/**
+ * 随机获取数据
+ * @param nums
+ * @param callback
+ */
+Movie.getRandomMovies = function(nums, callback){
+    db.query('select * from movies order by rand() limit ?',[nums],
+        function (err, result) {
+            if (err) {
+                callback(err, null);
+            }
+            callback(null, result);
+        })
+}
+
 
 
 module.exports = Movie;

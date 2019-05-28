@@ -38,7 +38,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // 配置模板引擎中间件
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'xtpl');
+app.engine('.html', require('xtpl').__express);
+app.set('view engine', 'html');
 
 
 // 挂载配置文件中的数据信息(密匙)
@@ -64,7 +65,7 @@ if (config.isDebug) {
 
 
 // 开启监听端口 server
-server.listen(80, '127.0.0.1', function () {
+server.listen(88, '127.0.0.1', function () {
     console.log('Server is listening at port 80…………');
     process.exec('start http://127.0.0.1');
 })

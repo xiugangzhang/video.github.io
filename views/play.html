@@ -1,0 +1,151 @@
+{{extend ("./layout")}} {{#block ("head")}}
+<link rel="stylesheet" href="/www/css/play.css">{{/block}} {{#block ("body")}}
+<div class="search clearfix"></div>
+<div class="play clearfix">
+    <div class="w">
+        <div></div>
+        <div class="play-video">
+            <iframe id="video_iframe" frameborder="no" src="{{playUrl}}"></iframe>
+            <div class="video-top" id="video-top"></div>
+        </div>
+        <div class="play-intro">
+            <div class="play-intro-title"><span class="movie-vip">VIP</span> <span class="movie-name">{{movie.title || '正在播放'}}</span>
+            </div>
+            <div class="play-intro-content">
+                <table class="play-intro-table">
+                    <tbody>
+                    <tr>{{# if(movie.type === '电视剧')}}
+                        <td>已更新</td>
+                        <td>25集</td>
+                        {{else}}
+                        <td>上映状态</td>
+                        <td>已上映</td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        <td>类型</td>
+                        {{# if (movie.type)}}
+                        <td>{{movie.type}}</td>
+                        {{else}}
+                        <td>搜索视频</td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        <td>发布时间</td>
+                        {{#if (movie.addtime)}}
+                        <td>{{movie.addtime}}</td>
+                        {{else}}
+                        <td>全网最新</td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        <td>星级</td>
+                        <td class="star">{{movie.score || '8.7'}}</td>
+                    </tr>
+                    <tr>
+                        <td>评论数量</td>
+                        <td>{{comemntNum}}</td>
+                    </tr>
+                    <tr>{{#if (movie.playnum)}}
+                        <td>播放数量</td>
+                        <td>{{movie.playnum}}</td>
+                        {{else}}
+                        <td>视频来源</td>
+                        <td>用户搜索</td>
+                        {{/if}}
+                    </tr>
+                    <tr>{{#if (movie.info)}}
+                        <td>影片介绍</td>
+                        <td>{{movie.info}}</td>
+                        {{else}}
+                        <td>站长提示</td>
+                        <td>找不到的VIP视频就试试网站的搜索功能呗</td>
+                        {{/if}}
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="select-index">{{# if(movie.type === '电视剧')}} <a href="#" class="select-last">上一集</a> <select
+                        id="select-num" class="select">
+                    <option value="01">第01集</option>
+                    <option value="02">第02集</option>
+                    <option value="03">第03集</option>
+                    <option value="04">第04集</option>
+                    <option value="05">第05集</option>
+                    <option value="06">第06集</option>
+                    <option value="07">第07集</option>
+                    <option value="08">第08集</option>
+                    <option value="09">第09集</option>
+                </select> <a href="#" class="select-next">下一集</a> {{else}} <a href="#"
+                                                                              class="select-movie-last toggleMovie">随便看看</a>{{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="play-other">
+            <div class="play-other-l"><span class="movie-name">{{movie.title}} </span>{{#if (movie.type !== '电影')}}
+                <span class="movie-index">正在播放</span> {{else}} <span class="movie-index">电影</span> {{/if}} <span><i
+                        id="usernum" style="font-weight:700;color:red">0</i>人正在看</span> <span class="movie-score">{{movie.score || '8.7'}}</span>
+            </div>
+            <div href="#" class="open-comment">
+                <div class="danmu-group" id="danmu-group"><span id="danmu" class="danmu-text">弹幕</span> <span
+                        class="danmu" id="status"></span></div>
+                <div class="danmu-form">{{#if (!user)}} <input type="text" placeholder="登录一起吐槽吧" maxlength="20">
+                    <button type="" id="loginButton" onclick='window.location.href="/login"'>登录</button>
+                    {{else}} <input type="text" placeholder="我也来说几句" maxlength="20" id="content">
+                    <button type="" id="commitButton">发表</button>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="play-other-r"><span class="play-other-toast">亲，这里可以切换接口加速啊！</span> <select
+                    class="select-interface" id="select-interface">
+                <option value="01">接口1</option>
+                <option value="02">接口2</option>
+                <option value="03">接口3</option>
+            </select></div>
+        </div>
+    </div>
+</div>
+<div class="comment clearfix">
+    <div class="w">
+        <div class="comment-login">{{#if (!user)}}
+            <div class="comment-top"><span>请先<a href="/login">登录</a>，才可以参与评论！</span></div>
+            {{else}}
+            <div class="comment-top"><span>我也来说几句</span></div>
+            <div class="comment-bottom">
+                <form action="/play" method="post" id="comment-form"><span class="comment-bottom-title">内容</span>
+                    <textarea class="comment-text" name="content" id="comment-text" cols="30" rows="10">我爱科技论坛VIP视频电影免费看啦！</textarea>
+                </form>
+                <sapn href="#" class="commit-comment" id="commit-comment">提交评论</sapn>
+                {{#if (isCollectMovie)}} <span href="#" class="collect-comment" id="cancel-movie">取消收藏</span> {{else}}
+                <span href="#" class="collect-comment" id="collect-movie">收藏电影</span> {{/if}}
+            </div>
+            {{/if}}
+        </div>
+        <div class="comment-con"><span class="title">电影评论</span>
+            <div class="con clearfix" id="comments">{{#if (comments)}} {{#each (comments)}}
+                <div class="comment-content">
+                    <div class="userlogo"><img src="{{this.face}}" alt=""></div>
+                    <div class="usercontent">
+                        <div class="usercontent-title"><a
+                                href="/login">{{this.uname}}</a><span>评论于 {{this.addtime}}</span></div>
+                        <div class="usercontent-con">{{this.content}}</div>
+                    </div>
+                </div>
+                {{/each}} {{/if}}
+            </div>
+            <div class="comments-page">
+                <div class="w">
+                    <ul id="comments-page">
+                        <li><a class="page-btn" href="#" id="firstPage">首页</a></li>
+                        <li><a class="page-btn" href="#" id="lastPage">上一页</a></li>
+                        <li><a class="page-btn" href="#"><i id="pageNow">1</i>&nbsp;/&nbsp;<i id="pageNum">{{pageNum ||
+                            1}}</i></a></li>
+                        <li><a class="page-btn" href="#" id="nextPage">下一页</a></li>
+                        <li><a class="page-btn" href="#" id="endPage">尾页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{{/block}} {{#block ("foot")}}
+<script src="/www/js/socket.io.js"></script>
+<script src="/www/js/play.js"></script>{{/block}}
